@@ -1,20 +1,14 @@
 {
-  "name": "skeleton-tracing-js",
+  "name": "skeleton-tracing",
   "version": "1.0.4",
   "description": "A new algorithm for retrieving topological skeleton as a set of polylines from binary images",
   "main": "dist/trace_skeleton.js",
   "unpkg": "dist/trace_skeleton.min.js",
   "jsdelivr": "dist/trace_skeleton.js.min.js",
   "module": "index.js",
-  "author": {
-    "name": "Lingdong Huang",
-    "email": "lingdong0618@hotmail.com"
-  },
+  "author": "Lingdong Huang <lingdong0618@hotmail.com>",
   "contributors": [
-    {
-      "name": "Radamés Ajna",
-      "email": "radamajna@gmail.com"
-    }
+    "Radamés Ajna <radamajna@gmail.com>"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -33,5 +27,16 @@
     "rollup-plugin-ascii": "^0.0.3",
     "rollup-plugin-terser": "^6.1.0",
     "terser": "^4.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguelAngel299/tfg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miguelAngel299/tfg/issues"
+  },
+  "homepage": "https://github.com/miguelAngel299/tfg#readme",
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }

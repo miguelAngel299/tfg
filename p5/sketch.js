@@ -1,32 +1,32 @@
 
-var WIDTH = 250;
-var HEIGHT = 200;
+//var WIDTH = 1200;
+//var HEIGHT = 1200;
 
 var img;
 var canv;
 var pg;
 
 function preload(){
-  img = loadImage("https://raw.githubusercontent.com/LingDong-/skeleton-tracing/master/test_images/horse_r.png");
+  img = loadImage("prueba.jpg");
 }
 
 function setup() {
   pixelDensity(1); // preventing p5 from automatically switching to 2x resolution for retina screens
 
-  createCanvas(WIDTH,HEIGHT);
+  createCanvas(img.width,img.height);
 
-  pg = createGraphics(WIDTH,HEIGHT);
+  pg = createGraphics(img.width,img.height);
   pg.background(0);
   pg.image(img,0,0);
 }
 
 function draw() {
-  
+  /*
   // use mouse to draw
   pg.stroke(255);
   pg.strokeWeight(10);
   pg.line(pmouseX,pmouseY,mouseX,mouseY);
-
+  */
   // trace the skeleton
   var {polylines,rects} = TraceSkeleton.fromCanvas(pg.canvas);
   
