@@ -55,6 +55,7 @@ var TraceSkeleton = new function(){ var that = this;
         diff = 1;
       }
     }
+
     return diff;
   }
   
@@ -340,6 +341,7 @@ var TraceSkeleton = new function(){ var that = this;
       frags = chunkToFrags(im,W,H,x,y,w,h);
     }
     return frags;
+    
   }
 
   /**First apply raster thinning (skeletonization), then vectorize the result into polylines
@@ -349,6 +351,7 @@ var TraceSkeleton = new function(){ var that = this;
    * @param csize   chunk size
    * @return        an array of polylines
   */
+  
   that.trace = function(im,W,H,csize){
     that.thinningZS(im,W,H);
     var rects = []

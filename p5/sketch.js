@@ -7,7 +7,9 @@ var canv;
 var pg;
 
 function preload(){
-  img = loadImage("prueba.jpg");
+  //img = loadImage("images.png");
+  img = loadImage("salida.png");
+  //img = loadImage("https://raw.githubusercontent.com/LingDong-/skeleton-tracing/master/test_images/horse_r.png");
 }
 
 function setup() {
@@ -43,10 +45,67 @@ function draw() {
   }
   // draw the polylines
   stroke(255,0,0);
-  for (var i = 0; i < polylines.length; i++){
+  
+
+  dibujarAngulo(polylines);
+  
+  /*for (var i = 0; i < polylines.length; i++){
     for (var j = 1; j < polylines[i].length; j++){
-      line(polylines[i][j-1][0],polylines[i][j-1][1],polylines[i][j][0],polylines[i][j][1])
+      console.log((polylines[i][j-1][0]+" - "+ //x
+          polylines[i][j-1][1]+" - "+ //y
+           polylines[i][j][0]+" - "+ //x1
+           polylines[i][j][1])) //y1
     }
-  }
+  }*/
+}
+
+function dibujarAngulo(polylines){
+  let menor = polylines[0][0];
+  let xm = 999;
+  let ym = -1;
+  for (var i = 0; i < polylines.length; i++){
+    for (var j = 0; j < polylines[i].length; j++){
+        if(xm > polylines[i][j][0])
+          xm = polylines[i][j][0];
+
+        if(ym < polylines[i][j][1]){
+          ym= polylines[i][j][1];
+          medio = polylines[i][j];
+        }
+
+  }}
+
+  xm = int((medio[0] + xm)/2);
+  pendiente1 = (ym - polylines[0][polylines[0].length-1][1])/(xm - polylines[0][polylines[0].length-1][0])
+  pendiente2 = (ym - polylines[0][0][1])/(xm - polylines[0][0][0])
+
+
+  m = (pendiente2-pendiente1)/(1+pendiente1*pendiente2);
+  radianes = Math.atan(m);
+  alpha = radianes * 180 / Math.PI;
+  console.log("p1:"+pendiente1)
+  console.log("p2:"+pendiente2)
+  console.log("m:"+m)
+  console.log("alpha:"+alpha)
+  console.log(menor)
+  //line(0,0,101, 210)
+    line(polylines[0][0][0] //x
+            ,polylines[0][0][1], //y
+             xm,
+             ym)
+    line(xm,
+         ym,
+         polylines[0][polylines[0].length-1][0], //x1
+             polylines[0][polylines[0].length-1][1])
+    
+    //Medio real - MAXIMA Y
+    //  line(polylines[0][0][0] //x
+    //         ,polylines[0][0][1], //y
+    //          medio[0],
+    //          medio[1])
+    // line(medio[0],
+    //          medio[1],
+    //      polylines[0][polylines[0].length-1][0], //x1
+    //          polylines[0][polylines[0].length-1][1])
 
 }
