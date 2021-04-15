@@ -8,7 +8,7 @@ var pg;
 
 function preload(){
   //img = loadImage("images.png");
-  img = loadImage("salida.png");
+  img = loadImage("../cliente/img/salida.png");
   //img = loadImage("https://raw.githubusercontent.com/LingDong-/skeleton-tracing/master/test_images/horse_r.png");
 }
 

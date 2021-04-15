@@ -1,0 +1,158 @@
+/*
+@author: Miguel Ángel Picazo Fernández
+*/
+
+.navigation{
+	margin-left: 22%;
+}
+.navegacion{
+	padding-top:95px;
+	list-style: none;
+	height: 250px;
+	margin: 20px;
+	width: 500px;
+	background-color: black;
+	border:solid 1px;
+	border-color: black;
+	border-radius: 100px;
+	box-shadow: 5px 5px 8px #FFFFED;
+}
+.navegacion-item{
+	font-size: 50px;
+	color: white;
+	-webkit-text-stroke: 2px black;
+	text-shadow: 0.1em 0.1em 0.2em #FFFFED;
+	-webkit-text-stroke: 2px black;
+}
+.navegacion-item-hover:hover{
+	text-shadow: 5px 5px gray;
+}
+
+.personaje{
+	height: 40px;
+    width: 48px;
+    margin: 0 auto;
+    background: url("/cliente/img/lobo.png");
+    /*background-position: -48px 0;*/
+    animation: correr 1s steps(4) infinite;
+    position: absolute;
+    left: 20%;
+    bottom: 2px;
+}
+
+.fondo{
+	height: 171px;
+	width: 450px;
+	background: url("/cliente/img/loadCamino.png");
+	position: relative;
+	animation: animarFondo 3s linear infinite;
+	margin: 0 auto;
+	border-radius: 30px;
+	box-shadow: 5px 5px 8px #FFFFED;
+}
+
+.jumbotron-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.chat{
+	height: 530px;
+	width: 350px;
+	background-color: #ABABAA;
+	border-radius: 20px;
+	box-shadow: 5px 5px 8px #FFFFED;
+}
+
+.container-msg{
+	height: 450px;
+	width: 310px;
+	background-color: white;
+	margin-left: 20px;
+	margin-top: 20px;
+	position: absolute;
+	overflow: hidden;
+	overflow-y: scroll;
+	border-radius: 10px;
+}
+.text-msg{
+	height: 20px;
+	width: 220px;
+	background-color: #F6FF81;
+	position: absolute;
+	margin-top: 490px;
+	margin-left: 20px;
+	border-radius: 20px;
+}
+.button-send{
+	height: 25px;
+	width: 70px;
+	background-color: #6CFF57;
+	margin-left: 260px;
+	margin-top: 490px;
+	border-radius: 20px;
+}
+.labelChat{
+	font: oblique bold 100% cursive;
+	margin-left: 10px;
+	margin-top: 10px;
+	color:black;
+}
+
+.li-jugadores{
+	height: 40px;
+	width: 200px;
+	margin: 0 auto;
+}
+
+.a-jugadores{
+	height: 40px;
+	width: 200px;
+	margin: 0 auto;
+}
+
+@keyframes correr{
+	0%{
+		background-position: 0px;
+	}
+	100%{
+		background-position: -192px;
+	}
+}
+@keyframes animarFondo{
+	0%{
+		background-position: 0px;
+	}
+	100%{
+		background-position: -240px;
+	}
+}
+
+body{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+label{
+	font-size: 30px;
+	color: white;
+}
+h2{
+	font: oblique bold 120% cursive;
+	text-shadow: 0.1em 0.1em 0.2em #FFFFED;
+	-webkit-text-stroke: 2px black;
+}
+input{
+	width: 300px;
+	height: 50px;
+	font-size: 50px;
+	color: black;
+	font: oblique bold 120% cursive;
+	border-radius: 10px;
+}
+h1{
+	font: oblique bold 120% cursive;
+	text-shadow: 0.1em 0.1em 0.2em #FFFFED;
+	-webkit-text-stroke: 2px black;
+}
+
