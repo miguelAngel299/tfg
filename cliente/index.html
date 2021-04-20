@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prototipo</title>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, user-scalable=no,  initial-scale=1, maximun-scale=1, minimun-scale=1"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="cliente/css/style.css">
+    <link rel="stylesheet" type="text/css" href="cliente/css/fontello.css">
+    <script src="https://cdn.jsdelivr.net/npm/skeleton-tracing-js/dist/trace_skeleton.min.js"></script>
+    <!--script src="cliente/src/sketch.js"></script-->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    
+
+  </head>
+  <body>
+    <!--input type="image" src="cliente/img/cargar.gif" alt="Submit" accept="image/*" capture="camera"-->
+    <header class="header">
+      <div class="contenedor">
+        <h1 class="icon-photo">Prototipo App v0.0</h1>
+        <img src="cliente/img/uclm.png" class="bannerImg">
+      </div>
+    </header>
+    <!--
+    <div class="banner">
+      <img src="cliente/img/uclm.png" class="bannerImg">
+    </div>
+    -->
+    <main class="main" id="main">
+      <div class="contenedor">
+        <section class="info">
+          <article class="infoColumna">
+            <form id="subir">
+              <div class="image-take">
+                <label for="file-input">
+                    <img src="cliente/img/camara.png" alt ="Click aquí para hacer tu foto" title ="Click aquí para tomar tu foto" > 
+                </label>
+                <input id="file-input" name="foto" type="file"/ accept="image/*" capture="camera">
+                <h2 class="infoTitulo">Click en la imagen para tomar foto</h2>
+              </div>
+            </form>
+          </article>
+          <article class="infoColumna">
+            <div class="image-upload">
+              <label for="btnUpload">
+                  <img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto" > 
+              </label>
+              <input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();" />
+              <h2 class="infoTitulo">Click en la imagen para subir foto</h2>
+            </div>
+            
+          </article>
+        </section>
+      </div>
+  </main>
+
+  <footer class="footer">
+    <p class="autor">&copy; Universidad de Castilla-La Mancha 2021</p>
+    <p class="autor">Miguel Angel Picazo Fernandez   -  MiguelAngel.Picazo@alu.uclm.es</p>
+  </footer>
+    <!--
+    <div><h1 class="text">Click en el gif para subir la imagen<h1><div>
+    <div class="image-upload">
+      <label for="file-input">
+          <img src="cliente/img/cargar.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto" > 
+      </label>
+          <input id="file-input" name="foto" type="file"/ accept="image/*" capture="camera">
+    </div>
+  -->
+    <script type="text/javascript">
+      function onUpload() {
+        var myInput = document.getElementById('file-input');
+        var file = myInput.files[0].name;
+        var form = document.getElementById('subir');
+        var formData = new FormData(form);
+        formData.append('image', file);
+
+        $.ajax({
+          type: 'POST',
+          url: '/upload',
+          data: formData,
+          success: function (data) {
+            console.log(data)
+          },
+          contentType: false,
+          processData:false
+        });
+      }
+    </script>
+  </body>
+
+  
+</html>

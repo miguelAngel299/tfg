@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+h1, h2 h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 1.5px;
+}
+
+/* -------------- Estilos Header ------------- */
+.header {
+	width: 100%;
+	height: 80px;
+	background: #333;
+	color: #fff;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	box-shadow: 1px 1px 3px #333;
+}
+
+.header .contenedor {
+	display: flex;
+	justify-content: space-between;
+}
+
+.icon-photo{
+	margin-top: 40px;
+}
+
+.bannerImg {
+	width: 40%;
+	height: 45%;
+	position: absolute;
+}
+
+/*-------------------- Estilos banner -------------- */
+.banner {
+	width: 100%;
+	margin-top: 80px;
+	position: relative;
+	z-index: 100%;
+	margin-bottom: 10px;
+	padding-right: 5px;
+}
+
+/*------------------- Estilos de info -------------- */
+.infoColumna {
+	background: #fff;
+	color: #333;
+	padding: 10px;
+	margin-bottom: 5px;
+	text-align: center;
+	text-shadow: 1px 1px 3px #333;
+}
+
+/* ------------------ Estilos de footer ------- */
+.footer{
+	background: #333;
+	color: #fff;
+	padding: 5px;
+	text-align: center;
+}
+
+
+/* ---------- Formato imagenes --------------- */
+
+.main .contenedor {
+	margin-top: 90px;
+	width: 50%;
+	margin-left: auto;
+  	margin-right: auto;
+  	text-align: center;
+}
+
+.image-take > input{
+    display: none;
+}
+.image-take img{
+	box-shadow: 2px 2px 3px #333;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.image-upload > input{
+    display: none;
+}
+.image-upload img{
+	box-shadow: 2px 2px 3px #333;
+	margin-left: auto;
+  	margin-right: auto;
+    /*padding-left: 5vw;
+    padding-right: 5vw;
+    width: 80vh 80vw;
+    cursor: pointer;*/
+}
+
+.infoTitulo {
+	font-size: 20px;
+}
+
+
+
+/*
+.text{
+	width: 100vh;
+    text-overflow: ellipsis;
+    white-space: pre;
+	padding-left: 5vw;
+	padding-right: 5vw;
+    padding-top: 5vh;
+}
+*/
+/*----------------- Estilos responsive -------- */
+@media (min-width: 195px) and (max-width: 326px){
+	.header{
+		height: 120px;
+	}
+	.banner {
+		margin-top: 100px;
+	}
+
+	.bannerImg {
+		width: 60%;
+		height: 30%;
+	}
+
+	.main .contenedor {
+		margin-top: 120px;
+	}
+}
+
+@media (min-width: 326px) and (max-width: 480px){
+	.icon-photo {
+		font-size: 30px;
+	}
+	.banner {
+		height: 90px;
+	}
+}
+
+@media (min-width: 480px) and (max-width: 768px){
+	.icon-photo {
+		font-size: 40px;
+		margin-top: 55px;
+	}
+	.header {
+		height: 110px;
+	}
+	.banner {
+		margin-top: 90px;
+		margin-right: 10px;
+	}
+	.infoColumna{
+		display: inline-block;
+		width: 35%;
+	}
+	.infoTitulo{
+		font-size: 27px;
+		margin: 5px 0;
+		display: flex;
+	}
+
+	.main .contenedor {
+		width: 100%;
+		margin-top: 120px;
+		margin-left: auto;
+  		margin-right: auto;
+	}
+
+	.bannerImg{
+		width: 40%;
+		height: 45%;
+	}
+
+	.image-upload {
+		margin-left: 20px;
+	}
+
+	.image-take{
+  		margin-right: 20px;
+	}
+	.contenedor {
+		margin-left: auto;
+  		margin-right: auto;
+  		text-align: center;
+	}
+}
+
+@media(min-width: 768px) and (max-width: 1024px) {
+	.icon-photo {
+		margin-top: 60px;
+		font-size: 40px;
+	}
+
+	.infoColumna{
+		display: inline-block;
+		width: 35%;
+	}
+	.header {
+		height: 120px;
+	}
+
+	.banner {
+		margin-top: 100px;
+	}
+
+	.main .contenedor {
+		margin-top: 140px;
+		width: 100%;
+		margin-left: auto;
+  		margin-right: auto;
+	}
+
+	.bannerImg{
+		width: 25%;
+		height: 45%;
+	}
+
+	.image-take {
+		margin-right: 40px;
+	}
+
+	.image-upload {
+		margin-left: 40px;
+	}
+	.contenedor {
+		margin-left: auto;
+  		margin-right: auto;
+  		text-align: center;
+	}
+}
+
+@media(min-width: 1024px) and (max-width: 2048px) {
+	.icon-photo {
+		margin-top: 60px;
+		font-size: 40px;
+	}
+
+	.bannerImg{
+		width: 15%;
+		height: 50%;
+	}
+
+	.header {
+		height: 110px;
+	}
+
+	.banner {
+		margin-top: 110px;
+	}
+
+	.infoColumna{
+		display: inline-block;
+		width: 35%;
+	}
+
+	.main .contenedor {
+		margin-top: 130px;
+		width: 100%;
+		margin-left: auto;
+  		margin-right: auto;
+	}
+
+	.image-take {
+		margin-right: 60px;
+	}
+
+	.image-upload {
+		margin-left: 60px;
+	}
+}
+
+
+@media (min-width: 2048px){
+	.icon-photo {
+		margin-top: 80px;
+		font-size: 50px;
+		text-align: center;
+	}
+
+	.header {
+		height: 150px;
+	}
+
+	.bannerImg {
+		width: 15%;
+		height: 50%;
+	}
+
+	.main .contenedor {
+		margin-top: 160px;
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.infoColumna{
+		display: inline-block;
+		
+	}
+
+	.image-take {
+		margin-right: 80px;
+		width: 80%;
+	}
+
+	.image-upload {
+		margin-left: 80px;
+	}
+
+}

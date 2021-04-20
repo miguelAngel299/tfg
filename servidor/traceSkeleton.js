@@ -4,7 +4,8 @@
 // Lingdong Huang 2020
 
 
-var TraceSkeleton = new function(){ var that = this; 
+function TraceSkeleton(){ 
+  var that = this; 
   
   /** Binary image thinning (skeletonization) in-place.
     * Implements Zhang-Suen algorithm.
@@ -429,4 +430,4 @@ var TraceSkeleton = new function(){ var that = this;
   
 }
 
-export default TraceSkeleton 
+//module.export.default.TraceSkeleton 
