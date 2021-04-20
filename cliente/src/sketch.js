@@ -1,4 +1,3 @@
-
 //var WIDTH = 1200;
 //var HEIGHT = 1200;
 
@@ -8,7 +7,7 @@ var pg;
 
 function preload(){
   //img = loadImage("images.png");
-  img = loadImage("../cliente/img/salida.png");
+  img = loadImage('cliente/img/salidaTemporal.png');
   //img = loadImage("https://raw.githubusercontent.com/LingDong-/skeleton-tracing/master/test_images/horse_r.png");
 }
 

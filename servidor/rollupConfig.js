@@ -4,7 +4,7 @@ import { terser } from "rollup-plugin-terser";
 
 export default [
   {
-    input: "trace_skeleton.vanilla.js",
+    input: "traceSkeleton.js",
     plugins: [
         ascii()
     ],
@@ -16,7 +16,7 @@ export default [
     }
   },
   {
-    input: "trace_skeleton.vanilla.js",
+    input: "traceSkeleton.js",
     plugins: [
         ascii(),
         terser()
