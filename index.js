@@ -67,9 +67,15 @@ app.post('/upload', function (req, res) {
 			if(e.code == 'ENOENT'){
 				fs.mkdir(__dirname+dir, function (err) { 
 			        fs.readFile(files.foto.path, function (err, data) { 
+<<<<<<< HEAD
 			            // save file from temp dir to new dir
 			            var fileName = path.join(__dirname, dir, files.foto.name); 
 			             
+=======
+			            // save file from temp dir to new dir 
+			            var fileName = path.join(__dirname, dir, files.foto.name); 
+			            //console.log(fileName); 
+>>>>>>> 987f9b5f0d8185dac3461871df62798720dd4ee2
 			            fs.writeFile(fileName, data, function (err) { 
 			                if (err) 
 			                    throw err; 
