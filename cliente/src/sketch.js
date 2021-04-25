@@ -7,34 +7,78 @@ var pg;
 
 function preload(){
   //img = loadImage("images.png");
-  img = loadImage('cliente/img/salidaTemporal.png');
+  //img = loadImage('cliente/img/salidaTemporal.png');
   //img = loadImage("https://raw.githubusercontent.com/LingDong-/skeleton-tracing/master/test_images/horse_r.png");
 }
 
 function setup() {
-  pixelDensity(1); // preventing p5 from automatically switching to 2x resolution for retina screens
 
-  createCanvas(img.width,img.height);
-
-  pg = createGraphics(img.width,img.height);
-  pg.background(0);
-  pg.image(img,0,0);
 }
 
-function draw() {
+function mostrar(){
+  img = loadImage('cliente/img/salidaTemporal.png', function(){
+    dibujar();
+  });
+  
+
+  // trace the skeleton
+  
+}
+
+function dibujar() {
   /*
   // use mouse to draw
   pg.stroke(255);
   pg.strokeWeight(10);
   pg.line(pmouseX,pmouseY,mouseX,mouseY);
   */
-  // trace the skeleton
-  var {polylines,rects} = TraceSkeleton.fromCanvas(pg.canvas);
-  
-  image(pg,0,0);
-
-
   // visualize
+
+  //var w = cw.getWidth();
+  //var h = cw.getHeight();
+  //console.log("WWWWWWW++++++++"+w);
+  //console.log("HHHHHHHH++++++++"+h);
+
+  var w = Math.round(cw.getWidth());
+  var h = Math.round(cw.getHeight());
+  var width = w - w * 0.2;
+  
+  factorEscala = Math.abs(img.width/img.height);
+
+  if(img.width > w){
+    img.width = width;
+    img.height = width - width * 0.2;
+    if(img.width > img.height){
+      var height = width - width / (factorEscala);
+      height=height - height * 0.4;
+    }else{
+      height = width - width * 0.4;
+      width=width - width / (factorEscala);
+    }
+  }else{
+    width = img.width;
+    height = img.height;
+  }
+
+  width = Math.round(Math.abs(width));
+  height = Math.round(Math.abs(height));
+
+  console.log("WWWWWWW++++++++"+width);
+  console.log("HHHHHHHH++++++++"+height);
+
+  pixelDensity(1); // preventing p5 from automatically switching to 2x resolution for retina screens
+  canv = createCanvas(width,height);
+
+  //canv.canvas.hidden=true;
+  pg = createGraphics(width,height);
+  pg.background(0);
+  pg.image(img,0,0,width,height);
+  //pg.image(img,0,0/*,img.width/2, img.height/2*/);
+
+
+
+  var {polylines,rects} = TraceSkeleton.fromCanvas(pg.canvas);
+  image(pg,0,0);
 
   noFill();
   // draw the rects
@@ -82,11 +126,13 @@ function dibujarAngulo(polylines){
   m = (pendiente2-pendiente1)/(1+pendiente1*pendiente2);
   radianes = Math.atan(m);
   alpha = radianes * 180 / Math.PI;
-  console.log("p1:"+pendiente1)
-  console.log("p2:"+pendiente2)
-  console.log("m:"+m)
-  console.log("alpha:"+alpha)
-  console.log(menor)
+
+  //console.log("p1:"+pendiente1)
+  //console.log("p2:"+pendiente2)
+  //console.log("m:"+m)
+  //console.log("alpha:"+alpha)
+  //console.log(menor)
+  
   //line(0,0,101, 210)
     line(polylines[0][0][0] //x
             ,polylines[0][0][1], //y
@@ -106,5 +152,9 @@ function dibujarAngulo(polylines){
     //          medio[1],
     //      polylines[0][polylines[0].length-1][0], //x1
     //          polylines[0][polylines[0].length-1][1])
-
+    
+    cw.ponerResultado();
+    //canv.canvas.style.width=img.width;
+    //canv.canvas.style.height=img.height;
+    //canv.canvas.hidden=false;
 }

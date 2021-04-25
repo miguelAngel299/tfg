@@ -11,6 +11,14 @@ function ClienteWS(){
 		this.socket.on('connect', function(){			
 			console.log("conectado al servidor de Ws");
 		});
+
+		this.socket.on('avisar',function(){
+			//console.log(res);
+			//cli.obtenerImg();
+			//cliR.obtenerImg();
+			mostrar();
+			//cw.ponerResultado();
+		});	
 	}
 
 	this.ini();

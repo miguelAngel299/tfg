@@ -6,15 +6,24 @@
     <meta name="viewport" content="width=device-width, user-scalable=no,  initial-scale=1, maximun-scale=1, minimun-scale=1"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skeleton-tracing-js/dist/trace_skeleton.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="cliente/src/clienteWS.js"></script>
+    <script src="cliente/src/controlWeb.js"></script>
+    <script src="cliente/src/clienteRest.js"></script>
+    <script src="cliente/src/sketch.js"></script>
     <link rel="stylesheet" type="text/css" href="cliente/css/style.css">
     <link rel="stylesheet" type="text/css" href="cliente/css/fontello.css">
-    <script src="https://cdn.jsdelivr.net/npm/skeleton-tracing-js/dist/trace_skeleton.min.js"></script>
-    <!--script src="cliente/src/sketch.js"></script-->
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-    
-
   </head>
+
+  <!--script type="text/javascript">
+    var canv = document.getElementsByTagName('canvas')[0];
+    console.log(canv);
+    canv.hidden=true;
+  </script-->
+
   <body>
     <!--input type="image" src="cliente/img/cargar.gif" alt="Submit" accept="image/*" capture="camera"-->
     <header class="header">
@@ -28,9 +37,13 @@
       <img src="cliente/img/uclm.png" class="bannerImg">
     </div>
     -->
-    <main class="main" id="main">
+    <main class="main">
       <div class="contenedor">
-        <section class="info">
+        <div class="resultado" id="canvasPosition" style="visibility: hidden;"></div>
+        <section class="info" id="main">
+          <article style="visibility: hidden;">
+            <script type="text/javascript" src="cliente/src/sketch.js"></script>
+          </article>
           <article class="infoColumna">
             <form id="subir">
               <div class="image-take">
@@ -50,7 +63,6 @@
               <input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();" />
               <h2 class="infoTitulo">Click en la imagen para subir foto</h2>
             </div>
-            
           </article>
         </section>
       </div>
@@ -60,16 +72,15 @@
     <p class="autor">&copy; Universidad de Castilla-La Mancha 2021</p>
     <p class="autor">Miguel Angel Picazo Fernandez   -  MiguelAngel.Picazo@alu.uclm.es</p>
   </footer>
-    <!--
-    <div><h1 class="text">Click en el gif para subir la imagen<h1><div>
-    <div class="image-upload">
-      <label for="file-input">
-          <img src="cliente/img/cargar.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto" > 
-      </label>
-          <input id="file-input" name="foto" type="file"/ accept="image/*" capture="camera">
-    </div>
-  -->
+    
     <script type="text/javascript">
+      var cw=new ControlWeb($);
+      var ws = new ClienteWS();
+      ws.ini();
+
+      var cliR = new ClienteRest();
+
+
       function onUpload() {
         var myInput = document.getElementById('file-input');
         var file = myInput.files[0].name;
@@ -77,19 +88,11 @@
         var formData = new FormData(form);
         formData.append('image', file);
 
-        $.ajax({
-          type: 'POST',
-          url: '/upload',
-          data: formData,
-          success: function (data) {
-            console.log(data)
-          },
-          contentType: false,
-          processData:false
-        });
+        cliR.subirImg(formData);
+        //ws.obtenerImg();
+        //cw.ponerResultado();
       }
+      //cw.mover();
     </script>
   </body>
-
-  
 </html>

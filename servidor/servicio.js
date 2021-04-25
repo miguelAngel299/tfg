@@ -1,9 +1,9 @@
 const { exec } = require('child_process');
-
-function Servicio(){
+function Servicio(sw){
+	this.sw=sw;
 	this.throwJavaProg = function(pathFile, codigo, name){
 		var data = JSON.stringify(pathFile);
-		var date = JSON.stringify(date);
+		//var date = JSON.stringify(date);
         var cmd = 'java -jar .\\servidor\\BinaryConverter.jar '+data+' '+codigo+' '+name;
         console.log(cmd);
         
@@ -17,9 +17,12 @@ function Servicio(){
 				console.error(`stderr: ${stderr}`);
 				return;
 			}
-			console.log('Foto guardada en '+cmd);	
+			//mande un mensaje al cliente con ws, avisar
+			process.stdout.write("Imagen creada\n"); 
+			//ws.obtenerImg();
+			sw.avisar();
 			//console.log(`stdout: \n${stdout}`);
-		}); 
+		});
 	}
 
 	this.getCodigo = function(){

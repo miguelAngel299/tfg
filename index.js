@@ -8,6 +8,7 @@ var path = require('path');
 
 //var { fork } = require('child_process');
 //var spawn = require('child_process').spawn;
+//var forked = fork('./servidor/servicio.js');
 //const { exec } = require('child_process');
 
 var traceSkeleton = require("./servidor/traceSkeleton.js");
@@ -15,6 +16,7 @@ var wss = require("./servidor/servidorWS.js");
 var servicio = require("./servidor/servicio.js");
 
 var servidorWS = new wss.ServidorWS();
+var service = new servicio.Servicio(servidorWS);
 
 app.set('port', process.env.PORT || 5000);
 
@@ -38,11 +40,17 @@ app.get('/', function (request, response) {
     response.send(contenido);
 });
 
+app.get('/obtenerImg', function(request, response){
+	var dir = __dirname.split('\\').join('/');
+	console.log(dir+"/cliente/img/salidaTemporal.png");
+	response.sendFile(dir+"/cliente/img/salidaTemporal.png");
+})
+
 app.post('/upload', function (req, res) { 
-    var form = new formidable.IncomingForm(); 
+    var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) { 
         var dir = "\\cliente\\img\\subidas\\";
-        var servicioJava = new servicio.Servicio();
+        //var servicioJava = new servicio.Servicio();
         console.log(files);
 	   	try{
 			if (fs.lstatSync(dir).isDirectory()){
@@ -56,26 +64,22 @@ app.post('/upload', function (req, res) {
 		                res.json({success: 'true'});
 
 		            });
-
 		            var pathFile = __dirname+dir+files.foto.name;
 		            var name = files.foto.name;
-		            var codigo = servicioJava.getCodigo();
-		            servicioJava.throwJavaProg(pathFile, codigo, name);
+		            var codigo = service.getCodigo();
+		           	service.throwJavaProg(pathFile, codigo, name);
 		        });    
 	   		}	
 		}catch(e){
 			if(e.code == 'ENOENT'){
 				fs.mkdir(__dirname+dir, function (err) { 
 			        fs.readFile(files.foto.path, function (err, data) { 
-<<<<<<< HEAD
 			            // save file from temp dir to new dir
 			            var fileName = path.join(__dirname, dir, files.foto.name); 
 			             
-=======
 			            // save file from temp dir to new dir 
-			            var fileName = path.join(__dirname, dir, files.foto.name); 
-			            //console.log(fileName); 
->>>>>>> 987f9b5f0d8185dac3461871df62798720dd4ee2
+			            //var fileName = path.join(__dirname, dir, files.foto.name); 
+			            //console.log(fileName);
 			            fs.writeFile(fileName, data, function (err) { 
 			                if (err) 
 			                    throw err; 
@@ -84,8 +88,8 @@ app.post('/upload', function (req, res) {
 				            
 			            var pathFile = __dirname+dir+files.foto.name;
 			            var name = files.foto.name;
-			            var codigo = servicioJava.getCodigo();
-			            servicioJava.throwJavaProg(pathFile, codigo, name);
+			            var codigo = service.getCodigo();
+			            service.throwJavaProg(pathFile, codigo, name);
 			        }); 
 			    });   
 			}
@@ -98,4 +102,4 @@ server.listen(app.get('port'), function () {
 });
 
 
-servidorWS.lanzarSocketSrv(io);
+servidorWS.lanzarSocketSrv(io, service);
