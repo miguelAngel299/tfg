@@ -97,6 +97,31 @@ app.post('/upload', function (req, res) {
     }); 
 });
 
+app.post('/download', function (request, response) {
+    var post='';
+    if (request.method == 'POST') {
+        var body = '';
+        request.on('data', function (data) {
+            body += data;
+        });
+
+        request.on('end', function () {
+//-------------parsing data from json to string-------------------------
+            post = JSON.parse(body);
+            var data = post.replace(/^data:image\/\w+;base64,/, "");
+            var buf = Buffer.from(data, 'base64');
+            var name = "angulo_"+service.getName()+".png";
+            var newName = name.replace(/^.*[\\\/]/, '');
+            var dir="\\cliente\\img\\angulos\\";
+            fs.mkdir(__dirname+dir, function (err) {
+	            fs.writeFile(__dirname+dir+newName, buf, function(err) {
+	            	console.log("The file was saved!");
+	        	});
+	        });
+        });
+    }
+});
+
 server.listen(app.get('port'), function () {
     console.log('App is running on port ', app.get('port'));
 });

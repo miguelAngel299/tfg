@@ -35,6 +35,10 @@ function Servicio(sw){
 		}
 		return codigo.join('');
 	}
+
+	this.getName = function (){
+		return sw.name;
+	}
 }
 
 function randomInt(low, high) {

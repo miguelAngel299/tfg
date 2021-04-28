@@ -19,6 +19,4 @@ function ClienteRest(){
 			//mostrar();
 		});
 	}
-
-
 }

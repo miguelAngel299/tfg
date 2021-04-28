@@ -1,10 +1,21 @@
 function ClienteWS(){
 	this.socket;
+	this.codigo; 
+	this.name;
+
 	this.ini=function(){
 		this.socket=io.connect(/*Se puede definir una URL*/);
 		this.lanzarSocketSrv();
 	}
 
+	this.obtenerCodigo=function(){
+		this.socket.emit("obtenerCodigo");
+	}
+
+	this.setName=function(file){
+		this.socket.emit("setName", file);
+	}
+	
 	this.lanzarSocketSrv=function(){
 		var cli=this;
 
@@ -17,8 +28,15 @@ function ClienteWS(){
 			//cli.obtenerImg();
 			//cliR.obtenerImg();
 			mostrar();
-			//cw.ponerResultado();
 		});	
+
+		this.socket.on('codigoObtenido', function(code){
+			cli.codigo= code;
+		});
+
+		this.socket.on('nameSetting', function(file){
+			cli.name= file;
+		});
 	}
 
 	this.ini();

@@ -1,7 +1,9 @@
 //var sketch=require('./traceSkeleton.js');
+var servicio=require('./servicio.js');
 
 function ServidorWS(){
     this.socket;
+    this.name;
 
 
 	this.enviarRemitente=function(socket,mens,datos){
@@ -22,6 +24,10 @@ function ServidorWS(){
         console.log(msg);
     }
 
+    this.getName = function(){
+        this.socket.emit('getName');
+    }
+
 	this.lanzarSocketSrv=function(io, service){
 		var cli=this;
 
@@ -29,6 +35,16 @@ function ServidorWS(){
             //socket on, obtenerIMG, salidaTemporal  
             //asignar variable
             cli.socket=socket;
+
+            socket.on('obtenerCodigo', function() {
+                   var code = service.getCodigo();
+                   cli.enviarRemitente(cli.socket, 'codigoObtenido', code);             
+            });
+
+            socket.on('setName', function(file) {
+                cli.enviarRemitente(cli.socket, 'nameSetting', file);
+                cli.name = file;
+            }); 
 		});
 	}
 

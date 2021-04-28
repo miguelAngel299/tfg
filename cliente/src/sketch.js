@@ -40,7 +40,7 @@ function dibujar() {
   //console.log("HHHHHHHH++++++++"+h);
 
   var w = Math.round(cw.getWidth());
-  var h = Math.round(cw.getHeight());
+  //var h = Math.round(cw.getHeight());
   var width = w - w * 0.2;
   
   factorEscala = Math.abs(img.width/img.height);
@@ -60,8 +60,8 @@ function dibujar() {
     height = img.height;
   }
 
-  width = Math.round(Math.abs(width));
-  height = Math.round(Math.abs(height));
+  //width = Math.round(Math.abs(width));
+  //height = Math.round(Math.abs(height));
 
   console.log("WWWWWWW++++++++"+width);
   console.log("HHHHHHHH++++++++"+height);
@@ -127,22 +127,25 @@ function dibujarAngulo(polylines){
   radianes = Math.atan(m);
   alpha = radianes * 180 / Math.PI;
 
-  //console.log("p1:"+pendiente1)
-  //console.log("p2:"+pendiente2)
-  //console.log("m:"+m)
-  //console.log("alpha:"+alpha)
-  //console.log(menor)
+  console.log("p1:"+pendiente1)
+  console.log("p2:"+pendiente2)
+  console.log("m:"+m)
+  console.log("alpha:"+alpha)
+  console.log(menor)
   
-  //line(0,0,101, 210)
-    line(polylines[0][0][0] //x
-            ,polylines[0][0][1], //y
-             xm,
-             ym)
+  
+	line(polylines[0][0][0], //x
+   		polylines[0][0][1], //y
+        xm,
+        ym)
     line(xm,
          ym,
          polylines[0][polylines[0].length-1][0], //x1
              polylines[0][polylines[0].length-1][1])
-    
+  
+
+
+
     //Medio real - MAXIMA Y
     //  line(polylines[0][0][0] //x
     //         ,polylines[0][0][1], //y

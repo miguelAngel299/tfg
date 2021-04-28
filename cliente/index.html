@@ -38,8 +38,9 @@
     </div>
     -->
     <main class="main">
-      <div class="contenedor">
+      <div class="contenedor" id="contenedorPrincipal">
         <div class="resultado" id="canvasPosition" style="visibility: hidden;"></div>
+        <div id="btnDownload"></div>
         <section class="info" id="main">
           <article style="visibility: hidden;">
             <script type="text/javascript" src="cliente/src/sketch.js"></script>
@@ -87,12 +88,46 @@
         var form = document.getElementById('subir');
         var formData = new FormData(form);
         formData.append('image', file);
-
+        ws.setName(file);
+        ws.obtenerCodigo();
+        if(!document.getElementById('canvasPosition') || !document.getElementById('btnDownload')){
+          cw.crear();
+        }
         cliR.subirImg(formData);
         //ws.obtenerImg();
         //cw.ponerResultado();
       }
       //cw.mover();
+    </script>
+
+    <script type="text/javascript">
+      var canvas = document.getElementsByTagName("canvas")[0];
+      function descargar(){
+        /*
+        var filename = prompt("Guardar como...",ws.codigo+'_'+ws.name);
+        if (canvas.msToBlob){ //para internet explorer
+            var blob = canvas.msToBlob();
+            window.navigator.msSaveBlob(blob, filename + ".png" );// la extensión de preferencia pon jpg o png
+        } else {
+            link = document.getElementById("download");
+            //Otros navegadores: Google chrome, Firefox etc...
+            link.href = canvas.toDataURL("image/png");// Extensión .png ("image/png") --- Extension .jpg ("image/jpeg")
+            link.download = filename;
+        }
+        */
+        var image = document.getElementById("defaultCanvas0").toDataURL("image/png");
+        var msg = JSON.stringify(image);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/download');
+        xhr.send(msg, ws.name);
+        //cliR.subirImg(link.href);
+      }
+    </script>
+
+    <script type="text/javascript">
+      function volver(){
+        cw.volverPrincipal();
+      }
     </script>
   </body>
 </html>
