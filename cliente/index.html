@@ -40,6 +40,7 @@
     <main class="main">
       <div class="contenedor" id="contenedorPrincipal">
         <div class="resultado" id="canvasPosition" style="visibility: hidden;"></div>
+        <div id="ang"></div>
         <div id="btnDownload"></div>
         <section class="info" id="main">
           <article style="visibility: hidden;">
@@ -90,7 +91,7 @@
         formData.append('image', file);
         ws.setName(file);
         ws.obtenerCodigo();
-        if(!document.getElementById('canvasPosition') || !document.getElementById('btnDownload')){
+        if(!document.getElementById('canvasPosition')){
           cw.crear();
         }
         cliR.subirImg(formData);

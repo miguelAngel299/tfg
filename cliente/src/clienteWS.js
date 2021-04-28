@@ -2,6 +2,7 @@ function ClienteWS(){
 	this.socket;
 	this.codigo; 
 	this.name;
+	this.angulo;
 
 	this.ini=function(){
 		this.socket=io.connect(/*Se puede definir una URL*/);
@@ -15,7 +16,7 @@ function ClienteWS(){
 	this.setName=function(file){
 		this.socket.emit("setName", file);
 	}
-	
+
 	this.lanzarSocketSrv=function(){
 		var cli=this;
 
@@ -28,6 +29,7 @@ function ClienteWS(){
 			//cli.obtenerImg();
 			//cliR.obtenerImg();
 			mostrar();
+			cli.angulo = getAngulo();
 		});	
 
 		this.socket.on('codigoObtenido', function(code){

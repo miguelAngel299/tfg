@@ -4,6 +4,7 @@
 var img;
 var canv;
 var pg;
+var ang;
 
 function preload(){
   //img = loadImage("images.png");
@@ -127,10 +128,12 @@ function dibujarAngulo(polylines){
   radianes = Math.atan(m);
   alpha = radianes * 180 / Math.PI;
 
+  ang = getAngulo(alpha);
+
   console.log("p1:"+pendiente1)
   console.log("p2:"+pendiente2)
   console.log("m:"+m)
-  console.log("alpha:"+alpha)
+  console.log("alpha:"+ang)
   console.log(menor)
   
   
@@ -155,9 +158,16 @@ function dibujarAngulo(polylines){
     //          medio[1],
     //      polylines[0][polylines[0].length-1][0], //x1
     //          polylines[0][polylines[0].length-1][1])
-    
-    cw.ponerResultado();
+
+    cw.ponerResultado(ang);
     //canv.canvas.style.width=img.width;
     //canv.canvas.style.height=img.height;
     //canv.canvas.hidden=false;
+}
+
+function getAngulo(angulo){
+  console.log("ANGULO ANTES "+angulo);
+  var redond = Math.round(angulo * 100)/100;
+  console.log("getAngulo++++"+redond);
+  return redond+"º";
 }
