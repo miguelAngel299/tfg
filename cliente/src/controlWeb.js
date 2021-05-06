@@ -9,7 +9,6 @@ function ControlWeb($){
 	this.ponerResultado=function(angulo){
 		principal = document.getElementById('main');
 		$('#main').remove();
-		//document.getElementById('canvasPosition').style.visibility="visible";
 		this.mover(angulo);
 		document.getElementById('canvasPosition').style.visibility="visible";
 		document.getElementsByTagName('canvas')[0].style.visibility="visible";
@@ -23,8 +22,6 @@ function ControlWeb($){
         document.getElementById("canvasPosition").appendChild(canv);
         yo.ponerAngulo(angulo);
         yo.ponerBoton();
-       	//canv.canvas.hidden=false;
-        //mostrar();
 	}
 
 	this.ponerAngulo=function(angulo){
@@ -45,7 +42,6 @@ function ControlWeb($){
 
 	this.getHeight=function(){
 		var height = document.getElementById('canvasPosition');
-		//console.log('getHeight+++++'+height.getBoundingClientRect().height);
 		return Math.abs(height.getBoundingClientRect().height);
 	}
 
@@ -60,7 +56,8 @@ function ControlWeb($){
 	}
 
 	this.ponerBoton=function(){
-		var cadena = '<div id="download"><input type="button" class="btnFinal" value="Descargar" onClick="descargar()"><input type="button" class="btnFinal" value="Volver Menú" onClick="volver()"></div>';
+		var cadena = '<div id="download"><input type="button" class="btnFinal" value="Descargar" onClick="descargar()">';
+		cadena+='<input type="button" class="btnFinal" value="Volver Menú" onClick="volver()"></div>';
 		var z = document.createElement('p'); // is a node
 		z.innerHTML = cadena;
 		if(btn){
@@ -68,12 +65,9 @@ function ControlWeb($){
 		}else{
 			document.getElementById("btnDownload").appendChild(z);
 		}
-		//$('#btnDownload').append(cadena);
 	}
 
 	this.crear=function(){
 		document.getElementById("contenedorPrincipal").appendChild(canvas);
-		//yo.ponerResultado(ws.angulo);
-		//document.getElementById("canvasPosition").appendChild(btn);	
 	}
 }

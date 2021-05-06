@@ -7,9 +7,6 @@ var pg;
 var ang;
 
 function preload(){
-  //img = loadImage("images.png");
-  //img = loadImage('cliente/img/salidaTemporal.png');
-  //img = loadImage("https://raw.githubusercontent.com/LingDong-/skeleton-tracing/master/test_images/horse_r.png");
 }
 
 function setup() {
@@ -20,60 +17,30 @@ function mostrar(){
   img = loadImage('cliente/img/salidaTemporal.png', function(){
     dibujar();
   });
-  
-
-  // trace the skeleton
-  
 }
 
 function dibujar() {
-  /*
-  // use mouse to draw
-  pg.stroke(255);
-  pg.strokeWeight(10);
-  pg.line(pmouseX,pmouseY,mouseX,mouseY);
-  */
-  // visualize
-
-  //var w = cw.getWidth();
-  //var h = cw.getHeight();
-  //console.log("WWWWWWW++++++++"+w);
-  //console.log("HHHHHHHH++++++++"+h);
-
-  var w = Math.round(cw.getWidth());
-  //var h = Math.round(cw.getHeight());
-  var width = w - w * 0.2;
+  var width = Math.round(cw.getWidth());
+  var height;
+  if(img.width > img.height)
+    height=Math.round(width*0.4);
+  else
+    width=Math.round(width*0.4);
   
-  factorEscala = Math.abs(img.width/img.height);
-
-  if(img.width > w){
-    img.width = width;
-    img.height = width - width * 0.2;
-    if(img.width > img.height){
-      var height = width - width / (factorEscala);
-      height=height - height * 0.4;
-    }else{
-      height = width - width * 0.4;
-      width=width - width / (factorEscala);
-    }
-  }else{
-    width = img.width;
-    height = img.height;
-  }
-
-  //width = Math.round(Math.abs(width));
-  //height = Math.round(Math.abs(height));
-
-  console.log("WWWWWWW++++++++"+width);
-  console.log("HHHHHHHH++++++++"+height);
 
   pixelDensity(1); // preventing p5 from automatically switching to 2x resolution for retina screens
-  canv = createCanvas(width,height);
+  canv = createCanvas(width, height);
+  canv.id("myCanvas");
 
+  img.resize(0,0);
   //canv.canvas.hidden=true;
-  pg = createGraphics(width,height);
+  pg = createGraphics(width, height);
   pg.background(0);
-  pg.image(img,0,0,width,height);
+  //REESCALAR --> MIRAR PG
+  pg.image(img,0,0,img.resize(0,height), img.resize(width,0));
+
+  //resize()
+  
   //pg.image(img,0,0/*,img.width/2, img.height/2*/);
 
 

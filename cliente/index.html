@@ -15,7 +15,6 @@
     <script src="cliente/src/sketch.js"></script>
     <link rel="stylesheet" type="text/css" href="cliente/css/style.css">
     <link rel="stylesheet" type="text/css" href="cliente/css/fontello.css">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
   </head>
 
   <!--script type="text/javascript">
@@ -25,18 +24,12 @@
   </script-->
 
   <body>
-    <!--input type="image" src="cliente/img/cargar.gif" alt="Submit" accept="image/*" capture="camera"-->
     <header class="header">
       <div class="contenedor">
         <h1 class="icon-photo">Prototipo App v0.0</h1>
         <img src="cliente/img/uclm.png" class="bannerImg">
       </div>
     </header>
-    <!--
-    <div class="banner">
-      <img src="cliente/img/uclm.png" class="bannerImg">
-    </div>
-    -->
     <main class="main">
       <div class="contenedor" id="contenedorPrincipal">
         <div class="resultado" id="canvasPosition" style="visibility: hidden;"></div>
@@ -95,28 +88,13 @@
           cw.crear();
         }
         cliR.subirImg(formData);
-        //ws.obtenerImg();
-        //cw.ponerResultado();
       }
-      //cw.mover();
     </script>
 
     <script type="text/javascript">
       var canvas = document.getElementsByTagName("canvas")[0];
       function descargar(){
-        /*
-        var filename = prompt("Guardar como...",ws.codigo+'_'+ws.name);
-        if (canvas.msToBlob){ //para internet explorer
-            var blob = canvas.msToBlob();
-            window.navigator.msSaveBlob(blob, filename + ".png" );// la extensión de preferencia pon jpg o png
-        } else {
-            link = document.getElementById("download");
-            //Otros navegadores: Google chrome, Firefox etc...
-            link.href = canvas.toDataURL("image/png");// Extensión .png ("image/png") --- Extension .jpg ("image/jpeg")
-            link.download = filename;
-        }
-        */
-        var image = document.getElementById("defaultCanvas0").toDataURL("image/png");
+        var image = document.getElementById("myCanvas").toDataURL("image/png");
         var msg = JSON.stringify(image);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/download');
