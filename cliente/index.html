@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href="cliente/css/style.css">
     <link rel="stylesheet" type="text/css" href="cliente/css/fontello.css">
   </head>
-
   <!--script type="text/javascript">
     var canv = document.getElementsByTagName('canvas')[0];
     console.log(canv);
@@ -24,6 +23,7 @@
   </script-->
 
   <body>
+    <div id="openModal"></div>
     <header class="header">
       <div class="contenedor">
         <h1 class="icon-photo">Prototipo App v0.0</h1>
@@ -55,7 +55,7 @@
               <label for="btnUpload">
                   <img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto" > 
               </label>
-              <input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();" />
+              <input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();"/>
               <h2 class="infoTitulo">Click en la imagen para subir foto</h2>
             </div>
           </article>
@@ -67,6 +67,13 @@
     <p class="autor">&copy; Universidad de Castilla-La Mancha 2021</p>
     <p class="autor">Miguel Angel Picazo Fernandez   -  MiguelAngel.Picazo@alu.uclm.es</p>
   </footer>
+
+  <div id="openModal" class="modalDialog">
+    <div>
+      <a href="#close" title="Close" class="close">X</a>
+      <h2>No has tomado una foto, tomala</h2>
+    </div>
+  </div>
     
     <script type="text/javascript">
       var cw=new ControlWeb($);
@@ -75,20 +82,24 @@
 
       var cliR = new ClienteRest();
 
-
       function onUpload() {
-        var myInput = document.getElementById('file-input');
-        var file = myInput.files[0].name;
-        var form = document.getElementById('subir');
-        var formData = new FormData(form);
-        formData.append('image', file);
-        ws.setName(file);
-        ws.obtenerCodigo();
-        if(!document.getElementById('canvasPosition')){
-          cw.crear();
+        if(document.getElementById('file-input').files.length != 0){
+          var myInput = document.getElementById('file-input');
+          var file = myInput.files[0].name;
+          var form = document.getElementById('subir');
+          var formData = new FormData(form);
+          formData.append('image', file);
+          ws.setName(file);
+          ws.obtenerCodigo();
+          if(!document.getElementById('canvasPosition')){
+            cw.crear();
+          }
+          cliR.subirImg(formData);
+        }else{
+          cw.mostrarModal();
         }
-        cliR.subirImg(formData);
       }
+
     </script>
 
     <script type="text/javascript">

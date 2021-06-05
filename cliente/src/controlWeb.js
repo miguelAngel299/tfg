@@ -70,4 +70,9 @@ function ControlWeb($){
 	this.crear=function(){
 		document.getElementById("contenedorPrincipal").appendChild(canvas);
 	}
+
+	this.mostrarModal=function(){
+		var cadena = "<a href='#openModal'></a>";
+		$('#openModal').append(cadena);
+	}
 }
