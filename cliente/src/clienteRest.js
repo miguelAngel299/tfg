@@ -12,6 +12,19 @@ function ClienteRest(){
         });
 	}
 
+	this.subirArchivo=function(formData){
+		$.ajax({
+          type: 'POST',
+          url: '/uploadFile',
+          data: formData,
+          success: function (data) {
+            console.log(data);
+          },
+          contentType: false,
+          processData:false
+        });
+	}
+
 	this.obtenerImg=function(){
 		$.getJSON("/obtenerImg",function(){    
 			//console.log(data);

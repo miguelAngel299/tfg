@@ -97,6 +97,60 @@ app.post('/upload', function (req, res) {
     }); 
 });
 
+app.post('/uploadFile', function (req, res) { 
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) { 
+        var dir = "\\cliente\\img\\subidas\\";
+        //var servicioJava = new servicio.Servicio();
+        console.log(files);
+        //console.log(files.select.path);
+        files=files.select;
+	   	try{
+			if (fs.lstatSync(dir).isDirectory()){
+		    	fs.readFile(files.path, function (err, data) { 
+		            // save file from temp dir to new dir 
+		            var fileName = path.join(__dirname, dir, files.name); 
+		            //console.log(fileName); 
+		            fs.writeFile(fileName, data, function (err) { 
+		                if (err) 
+		                    throw err; 
+		                res.json({success: 'true'});
+
+		            });
+		            var pathFile = __dirname+dir+files.name;
+		            var name = files.name;
+		            var codigo = service.getCodigo();
+		           	service.throwJavaProg(pathFile, codigo, name);
+		        });    
+	   		}	
+		}catch(e){
+			if(e.code == 'ENOENT'){
+				fs.mkdir(__dirname+dir, function (err) { 
+			        fs.readFile(files.path, function (err, data) { 
+			            // save file from temp dir to new dir
+			            var fileName = path.join(__dirname, dir, files.name); 
+			             
+			            // save file from temp dir to new dir 
+			            //var fileName = path.join(__dirname, dir, files.foto.name); 
+			            //console.log(fileName);
+			            fs.writeFile(fileName, data, function (err) { 
+			                if (err) 
+			                    throw err; 
+			                res.json({success: 'true'}); 
+			            });
+				            
+			            var pathFile = __dirname+dir+files.name;
+			            var name = files.name;
+			            var codigo = service.getCodigo();
+			            service.throwJavaProg(pathFile, codigo, name);
+			        }); 
+			    });   
+			}
+		}
+    }); 
+});
+
+
 app.post('/download', function (request, response) {
     var post='';
     if (request.method == 'POST') {

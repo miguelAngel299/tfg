@@ -152,7 +152,7 @@ for (var i = 0; i < polylines.length; i++){
         endJ = j;
         bandaF += 0.01;
       }
-      if(polylines[i][j][1] > colina && polylines[i][j][0]>Math.round((img.width/2)-(img.width * 0.1)) && polylines[i][j][0]< Math.round((img.width/2)+(img.width * 0.1))){
+      if(polylines[i][j][1] > colina && polylines[i][j][0]>Math.round((img.width/2)-(img.width * 0.01)) && polylines[i][j][0]< Math.round((img.width/2)+(img.width * 0.01))){
         colina = polylines[i][j][1];
           posI = i;
           posJ = j;

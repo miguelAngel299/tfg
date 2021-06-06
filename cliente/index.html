@@ -23,7 +23,9 @@
   </script-->
 
   <body>
-    <div id="openModal"></div>
+    <a id="open" href="#miModal"></a>
+    <div id="modal"></div>
+    <a id="download" class="button" download="resultado.png" href="#" target="_blank"></a>
     <header class="header">
       <div class="contenedor">
         <h1 class="icon-photo">Prototipo App v0.0</h1>
@@ -43,7 +45,7 @@
             <form id="subir">
               <div class="image-take">
                 <label for="file-input">
-                    <img src="cliente/img/camara.png" alt ="Click aquí para hacer tu foto" title ="Click aquí para tomar tu foto" > 
+                    <img src="cliente/img/camara.png" alt ="Click aquí para hacer tu foto" title ="Click aquí para tomar tu foto"> 
                 </label>
                 <input id="file-input" name="foto" type="file"/ accept="image/*" capture="camera">
                 <h2 class="infoTitulo">Click en la imagen para tomar foto</h2>
@@ -51,9 +53,20 @@
             </form>
           </article>
           <article class="infoColumna">
+            <form id="subir2">
+              <div class="image-take">
+                <label for="btnSelect">
+                    <img src="cliente/img/select.gif" alt ="Click aquí para seleccionar una foto" title ="Click aquí para seleccionar una foto">
+                </label>
+                <input id="btnSelect" name="select" type="file"/ accept="image/*">
+                <h2 class="infoTitulo">Click en la imagen para seleccionar una foto</h2>
+              </div>
+            </form>
+          </article>
+          <article class="infoColumna">
             <div class="image-upload">
               <label for="btnUpload">
-                  <img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto" > 
+                  <img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto"> 
               </label>
               <input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();"/>
               <h2 class="infoTitulo">Click en la imagen para subir foto</h2>
@@ -67,13 +80,6 @@
     <p class="autor">&copy; Universidad de Castilla-La Mancha 2021</p>
     <p class="autor">Miguel Angel Picazo Fernandez   -  MiguelAngel.Picazo@alu.uclm.es</p>
   </footer>
-
-  <div id="openModal" class="modalDialog">
-    <div>
-      <a href="#close" title="Close" class="close">X</a>
-      <h2>No has tomado una foto, tomala</h2>
-    </div>
-  </div>
     
     <script type="text/javascript">
       var cw=new ControlWeb($);
@@ -83,7 +89,15 @@
       var cliR = new ClienteRest();
 
       function onUpload() {
-        if(document.getElementById('file-input').files.length != 0){
+        var doc =  document.getElementById('file-input').files.length;
+        var select = document.getElementById('btnSelect').files.length;
+        console.log(doc);
+        if(doc+select==0){
+          cw.mostrarModal("Advertencia!","No has tomado o seleccionado ninguna foto, hazlo por favor", "#F6FF81");
+          document.getElementById("open").click();
+        }
+
+        if(doc != 0){
           var myInput = document.getElementById('file-input');
           var file = myInput.files[0].name;
           var form = document.getElementById('subir');
@@ -95,8 +109,18 @@
             cw.crear();
           }
           cliR.subirImg(formData);
-        }else{
-          cw.mostrarModal();
+        }else  if(select!=0){
+          var myInput = document.getElementById('btnSelect');
+          var file = myInput.files[0].name;
+          var form = document.getElementById('subir2');
+          var formData = new FormData(form);
+          formData.append('image', file);
+          ws.setName(file);
+          ws.obtenerCodigo();
+          if(!document.getElementById('canvasPosition')){
+            cw.crear();
+          }
+          cliR.subirArchivo(formData);
         }
       }
 
@@ -105,6 +129,9 @@
     <script type="text/javascript">
       var canvas = document.getElementsByTagName("canvas")[0];
       function descargar(){
+        document.getElementById("download").click();
+        cw.mostrarModal("Imagen descargada!!", "La imagen se ha descargado con éxito", "#39DF1E");
+        document.getElementById("open").click();
         var image = document.getElementById("myCanvas").toDataURL("image/png");
         var msg = JSON.stringify(image);
         var xhr = new XMLHttpRequest();
@@ -118,6 +145,15 @@
       function volver(){
         cw.volverPrincipal();
       }
+    </script>
+
+    <script type="text/javascript">
+      var download = document.getElementById("download");
+
+      download.addEventListener("click", function () {
+          var image = document.getElementById("myCanvas").toDataURL("image/png").replace(/^data:image\/[^;]/, "data:application/octet-stream");
+          download.setAttribute("href", image);
+      });
     </script>
   </body>
 </html>

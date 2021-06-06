@@ -56,8 +56,13 @@ function ControlWeb($){
 	}
 
 	this.ponerBoton=function(){
-		var cadena = '<div id="download"><input type="button" class="btnFinal" value="Descargar" onClick="descargar()">';
-		cadena+='<input type="button" class="btnFinal" value="Volver Menú" onClick="volver()"></div>';
+		var cadena = '<div id="download" class="botones"><div class="image-download"><label for="btnDescargar">';
+		cadena += '<h1 class="icon-download-alt" alt ="Click aquí para subir tu foto" title ="Click aquí para descargar la foto"></h1></label>';
+		cadena += '<input id="btnDescargar" type="button" class="btnFinal" value="Descargar" onClick="descargar()"></div>';
+		cadena += '</hr>';
+		cadena+= '<div class="image-return"><label for="btnFinal">';
+		cadena += '<h1 class="icon-undo" alt ="Click aquí para volver al menú" title ="Click aquí para volver al menú"></h1></label>';
+		cadena+='<input id="btnFinal" type="button" class="btnFinal" value="Volver Menú" onClick="volver()"></div></div>';
 		var z = document.createElement('p'); // is a node
 		z.innerHTML = cadena;
 		if(btn){
@@ -71,8 +76,9 @@ function ControlWeb($){
 		document.getElementById("contenedorPrincipal").appendChild(canvas);
 	}
 
-	this.mostrarModal=function(){
-		var cadena = "<a href='#openModal'></a>";
-		$('#openModal').append(cadena);
+	this.mostrarModal=function(h2,p, color){
+		$('#miModal').remove();
+		var cadena = '<div id="miModal" class="modal"><div class="modal-contenido" style="background-color:'+color+';"><a href="#" style="align-self: flex-end;">X</a><h2>'+h2+'</h2><p>'+p+'</p></div></div>';
+		$('#modal').append(cadena);
 	}
 }

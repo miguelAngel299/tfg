@@ -24,7 +24,7 @@ h1, h2 h3, h4, h5, h6 {
 	max-width: 100%;
 	width: auto;
 	height: auto;
-	border: 1px solid #d9d9d9
+	border: 1px solid #d9d9d9;
 }
 
 @supports(object-fit: cover){
@@ -33,6 +33,21 @@ h1, h2 h3, h4, h5, h6 {
       object-fit: cover;
       object-position: center center;
     }
+}
+
+a {
+	outline: none;
+  	text-decoration: none;
+  	padding: 2px 1px 0;
+	text-shadow: 1px 1px 3px #333;
+	margin-left: 90%;
+	-webkit-text-stroke: 2px #CD0E0E;
+	text-shadow: 0.1em 0.1em 0.2em #FFFFFF;
+	-webkit-text-stroke: 2px #CD0E0E;
+}
+
+a:hover {
+	text-shadow: 2px 2px 4px #F54F4F;
 }
 
 /* -------------- Estilos Header ------------- */
@@ -100,7 +115,6 @@ h1, h2 h3, h4, h5, h6 {
 
 
 /* ---------- Formato imagenes --------------- */
-
 .main .contenedor {
 	margin-top: 90px;
 	width: 50%;
@@ -109,6 +123,11 @@ h1, h2 h3, h4, h5, h6 {
   	text-align: center;
 }
 
+.botones {
+	justify-content: center;
+	margin-left: 40%;
+  	margin-right: 40%;
+}
 .image-take > input{
     display: none;
 }
@@ -131,6 +150,22 @@ h1, h2 h3, h4, h5, h6 {
     cursor: pointer;*/
 }
 
+.image-download > input{
+    display: none;
+}
+
+.image-download h1{
+	box-shadow: 2px 2px 3px #333;
+}
+
+.image-return > input{
+    display: none;
+}
+
+.image-return h1{
+	box-shadow: 2px 2px 3px #333;
+}
+
 .infoTitulo {
 	font-size: 20px;
 }
@@ -147,58 +182,31 @@ h1, h2 h3, h4, h5, h6 {
 	margin:0 auto;
 }
 
-.modalDialog {
-	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(0,0,0,0.8);
-	z-index: 99999;
-	opacity:0;
-	-webkit-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
-	pointer-events: none;
+.modal-contenido{
+  width:300px;
+  padding: 10px 20px;
+  margin: 20% auto;
+  position: relative;
+  border-radius: 10%;
+  border: 1px solid #d9d9d9;
+  box-shadow: 3px 3px 3px #333;
 }
-.modalDialog:target {
-	opacity:1;
-	pointer-events: auto;
+
+.modal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 1s;
 }
-.modalDialog > div {
-	width: 400px;
-	position: relative;
-	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
-	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
-  -webkit-transition: opacity 400ms ease-in;
--moz-transition: opacity 400ms ease-in;
-transition: opacity 400ms ease-in;
+#miModal:target{
+  opacity:1;
+  pointer-events:auto;
 }
-.close {
-	background: #606061;
-	color: #FFFFFF;
-	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000;
-	box-shadow: 1px 1px 3px #000;
-}
-.close:hover { background: #00d9ff; }
 /*
 .main .contenedor .resultado {
 	/*width: 50%;
@@ -234,6 +242,10 @@ transition: opacity 400ms ease-in;
 
 	.main .contenedor {
 		margin-top: 120px;
+	}
+
+	.infoColumna {
+  		text-align: center;
 	}
 
 	.resultado {
