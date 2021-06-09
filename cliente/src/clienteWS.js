@@ -28,6 +28,8 @@ function ClienteWS(){
 			//console.log(res);
 			//cli.obtenerImg();
 			//cliR.obtenerImg();
+			
+			//Quitar esperando imagen
 			mostrar();
 			cli.angulo = getAngulo();
 		});	
