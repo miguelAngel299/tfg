@@ -195,12 +195,12 @@ for (var i = 0; i < polylines.length; i++){
     //canv.canvas.style.width=img.width;
     //canv.canvas.style.height=img.height;
     //canv.canvas.hidden=false;
-    cw.ponerResultado(ang+"º");
+    cliR.visualizarAngulo(ang);
 }
 
 function getAngulo(angulo){
   console.log("ANGULO ANTES "+angulo);
-  var redond = Math.round(angulo * 100)/100;
-  console.log("getAngulo++++"+redond);
+  var redond = Math.round(angulo * 10000)/10000;
+  //cw.guardarAng(redond);
   return redond;
 }

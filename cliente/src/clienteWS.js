@@ -3,6 +3,7 @@ function ClienteWS(){
 	this.codigo; 
 	this.name;
 	this.angulo;
+	this.check=false;
 
 	this.ini=function(){
 		this.socket=io.connect(/*Se puede definir una URL*/);
@@ -13,8 +14,20 @@ function ClienteWS(){
 		this.socket.emit("obtenerCodigo");
 	}
 
+	this.confirmar=function(id){
+		this.socket.emit("confirmar",id, tipo);
+	}
+
 	this.setName=function(file){
 		this.socket.emit("setName", file);
+	}
+
+	this.confirm=function(){
+		this.socket.emit("confirm");
+	}
+
+	this.noCheck=function(){
+		this.socket.emit("noCheck");
 	}
 
 	this.lanzarSocketSrv=function(){
@@ -31,11 +44,26 @@ function ClienteWS(){
 			
 			//Quitar esperando imagen
 			mostrar();
-			cli.angulo = getAngulo();
+			//cli.angulo = getAngulo();
 		});	
 
 		this.socket.on('codigoObtenido', function(code){
 			cli.codigo= code;
+		});
+
+		this.socket.on('check', function(){
+			cli.check= true;
+
+		});
+
+		this.socket.on('check', function(){
+			cli.check= false;
+			$('#modalGeneral').modal('hide');
+			$('#modalGeneral').remove();
+		});
+
+		this.socket.on('confirmado', function(id, tipo){
+			cw.dialogoConfirmacion("¿Esta seguro?","Asegurese de que desea eliminar el paciente", id, tipo);
 		});
 
 		this.socket.on('nameSetting', function(file){

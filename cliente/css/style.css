@@ -8,7 +8,9 @@ img {
 	max-width: 100%;
 }
 
+
 body {
+	width: 100%;
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 }
@@ -35,6 +37,7 @@ h1, h2 h3, h4, h5, h6 {
     }
 }
 
+/*
 a {
 	outline: none;
   	text-decoration: none;
@@ -49,7 +52,7 @@ a {
 a:hover {
 	text-shadow: 2px 2px 4px #F54F4F;
 }
-
+*/
 /* -------------- Estilos Header ------------- */
 .header {
 	width: 100%;
@@ -105,6 +108,60 @@ a:hover {
 	height: 100%;
 }
 
+
+/*--------------- Estilo login ------------ */
+.login{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 90px;
+	width: 50%;
+}
+.login >h2{
+	font-size: x-large;
+}
+
+
+.registro{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 90px;
+	width: 50%;
+}
+
+.nuevoP{
+	margin-top: 90px;
+	text-align: center;
+}
+
+.listaPacientes{
+	margin-right: auto;
+	margin-left: 10%;
+}
+
+.login > p {
+	text-align: center;
+    inline-size: min-content;
+    justify-items: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20%;
+}
+
+.registro > p{
+	text-align: center;
+    inline-size: min-content;
+    justify-items: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20%;
+}
+
 /* ------------------ Estilos de footer ------- */
 .footer{
 	background: #333;
@@ -115,23 +172,56 @@ a:hover {
 
 
 /* ---------- Formato imagenes --------------- */
+.contendor{
+	margin-top: 10px;
+
+}
 .main .contenedor {
-	margin-top: 90px;
-	width: 50%;
+	margin-top: 15%;
+	width: 70%;
 	margin-left: auto;
   	margin-right: auto;
   	text-align: center;
 }
 
+
 .botones {
-	justify-content: center;
-	margin-left: 40%;
-  	margin-right: 40%;
+    /* margin-left: 40%; */
+    /* margin-right: 40%; */
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
+
+table {
+   width:100%;
+}
+thead {
+   display: none;
+}
+tr:nth-of-type(2n) {
+   background-color: inherit;
+}
+tr td:first-child {
+   background: #f0f0f0;
+   font-weight:bold;
+   font-size:1.3em;
+}
+tbody td {
+   display: block;
+   text-align:center;
+}
+tbody td:before {
+   content: attr(data-th);
+   display: block;
+   text-align:center;
+}
+
 .image-take > input{
     display: none;
 }
 .image-take img{
+	width: 75%;
 	box-shadow: 2px 2px 3px #333;
 	margin-left: auto;
   	margin-right: auto;
@@ -148,6 +238,52 @@ a:hover {
     padding-right: 5vw;
     width: 80vh 80vw;
     cursor: pointer;*/
+}
+
+.atras{
+    margin-top: 17%;
+    text-align-last: end;
+    margin-bottom: 0;
+    width: 15%;
+	background: #C7C7C7;
+	color: #fff;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	box-shadow: 1px 1px 3px #333;
+}
+
+
+.salir {
+    margin-top: 0;
+    text-align-last: end;
+    margin-bottom: 0;
+    width: 15%;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    display: contents;
+    z-index: 105;
+    box-shadow: 1px 1px 3px #333;
+}
+.btn-primary{
+	margin-bottom: 2%;
+}
+
+.registro > p {
+    text-align: center;
+    inline-size: min-content;
+    justify-items: center;
+    display: inline-flex;
+    margin-left: 20%;
+    flex-direction: column;
+}
+
+.atrasBtn{
+	display:none;
 }
 
 .image-download > input{
@@ -169,6 +305,100 @@ a:hover {
 .infoTitulo {
 	font-size: 20px;
 }
+
+.btnPaciente{
+	margin-inline-end: 10%;
+}
+
+.btnPaciente > input{
+	display: none;
+}
+
+.btnPaciente h1 {
+	box-shadow: 2px 2px 3px #333;	
+}
+
+.image-nuevo > input{
+    display: none;
+}
+.image-nuevo img{
+	width: 20%;
+	box-shadow: 2px 2px 3px #333;
+	margin-left: auto;
+  	margin-right: auto;
+    /*padding-left: 5vw;
+    padding-right: 5vw;
+    width: 80vh 80vw;
+    cursor: pointer;*/
+}
+
+.li-jugadores{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.a-jugadores{
+	margin-left: auto;
+	margin-right: 10%;
+}
+
+.center{
+	margin-left: 40%;
+}
+
+.tableListaP{
+	/*width:100%*/
+	white-space:nowrap;
+	border-style: none;
+	text-align: center;
+}
+
+.tableListaP td{
+	/*width: 25%;*/
+}
+
+.tableListaA{
+	white-space: nowrap;
+	border-style: none;
+	text-align: center;
+}
+
+.tableListaA td{
+}
+
+a {
+	color: black;
+	outline: none;
+  	text-decoration: none;
+  	padding: 2px 1px 0;
+	margin-left: 90%;
+	text-shadow: 0.1em 0.1em 0.2em #FFFFFF;
+	-webkit-text-stroke: 0.5px black;
+}
+/*
+a:hover {
+	text-shadow: 2px 2px 4px blue;
+}
+*/
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+.h4, h4 {
+    font-size: 18px;
+    color: black;
+    font-weight: lighter;
+}
+
 /*
 .resultado {
 	width:50%; 
@@ -181,7 +411,7 @@ a:hover {
 	height: auto;
 	margin:0 auto;
 }
-
+/*
 .modal-contenido{
   width:300px;
   padding: 10px 20px;
@@ -207,16 +437,14 @@ a:hover {
   opacity:1;
   pointer-events:auto;
 }
-/*
+
 .main .contenedor .resultado {
 	/*width: 50%;
 	margin-left: auto;
   	margin-right: auto;
   	margin-bottom: 10px;
 }
-*/
 
-/*
 .text{
 	width: 100vh;
     text-overflow: ellipsis;
@@ -238,10 +466,6 @@ a:hover {
 	.bannerImg {
 		width: 60%;
 		height: 30%;
-	}
-
-	.main .contenedor {
-		margin-top: 120px;
 	}
 
 	.infoColumna {
@@ -298,6 +522,11 @@ a:hover {
   		margin-right: auto;
 	}
 
+	.login{
+		margin-top: 120px;
+		width: 50%;
+	}
+
 	.bannerImg{
 		width: 40%;
 		height: 45%;
@@ -345,6 +574,11 @@ a:hover {
 		width: 100%;
 		margin-left: auto;
   		margin-right: auto;
+	}
+
+	.login{
+		margin-top: 120px;
+		width: 50%;
 	}
 
 	.bannerImg{
@@ -402,6 +636,11 @@ a:hover {
   		margin-right: auto;
 	}
 
+	.login{
+		margin-top: 130px;
+		width: 50%;
+	}
+
 	.image-take {
 		margin-right: 60px;
 	}
@@ -438,6 +677,11 @@ a:hover {
 		width: 100%;
 		margin-right: auto;
 		margin-left: auto;
+	}
+
+	.login{
+		margin-top: 160px;
+		width: 50%;
 	}
 
 	.infoColumna{

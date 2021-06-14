@@ -45,6 +45,19 @@ function ServidorWS(){
                 cli.enviarRemitente(cli.socket, 'nameSetting', file);
                 cli.name = file;
             }); 
+
+            socket.on('confirmar', function(id, tipo) {
+                cli.enviarRemitente(cli.socket, 'confirmado', id, tipo);
+            }); 
+
+            socket.on('confirm', function() {
+                cli.enviarRemitente(cli.socket, 'check');
+            }); 
+
+            socket.on('no',function(){
+                cli.enviarRemitente(cli.socket,'noCheck');
+            })
+
 		});
 	}
 

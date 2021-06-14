@@ -4,15 +4,20 @@
     <title>Prototipo</title>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, user-scalable=no,  initial-scale=1, maximun-scale=1, minimun-scale=1"/>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/skeleton-tracing-js/dist/trace_skeleton.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="cliente/src/clienteWS.js"></script>
     <script src="cliente/src/controlWeb.js"></script>
     <script src="cliente/src/clienteRest.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <script src="cliente/src/sketch.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="cliente/css/style.css">
     <link rel="stylesheet" type="text/css" href="cliente/css/fontello.css">
   </head>
@@ -23,17 +28,122 @@
   </script-->
 
   <body>
+    <a id="inicio" href="#contenedorMenuPrincipal"></a>
     <a id="open" href="#miModal"></a>
-    <div id="modal"></div>
+      <div id="modal"></div>
     <a id="download" class="button" download="resultado.png" href="#" target="_blank"></a>
     <header class="header">
       <div class="contenedor">
         <h1 class="icon-photo">Prototipo App v0.0</h1>
         <img src="cliente/img/uclm.png" class="bannerImg">
-      </div>
+        <div id="salir" class="salir">
+          <div class="btnSalir" id ="btnSalir ">
+            <label for="logOut">
+            <h1 class="icon-logout" alt ="Click aquí para cerrar sesion" title ="Click aquí para cerrar sesion"></h1></label>
+             <input id="logOut" type="button" class="atrasBtn" value="Salir">
+            </div>
+          </div>
+        </div>
     </header>
-    <main class="main">
-      <div class="contenedor" id="contenedorPrincipal">
+
+    <main id="myMain" class="main">
+      <!--div id="registro" class="registro">
+        <h2 id="cabeceraP">Registrarse</h2>
+        <div id="ig1" class="input-group" style="margin-bottom:25px">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
+          <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Escribe tu nombre" required>
+        </div>
+        <div id="ig2" class="input-group" style="margin-bottom:25px">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
+          <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Escribe tu apellido" required>
+        </div>
+        <div id="ig3" class="input-group" style="margin-bottom:25px">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
+          <input id="email" type="text" class="form-control" name="email" placeholder="Escribe tu email" required>
+        </div>
+        <div id="ig4" class="input-group" style="margin-bottom:25px">
+          <span class="input-group-addon" >
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <input id="clave1" type="password" class="form-control" name="password" placeholder="Escribe tu clave" required>
+        </div>
+        <div id="ig5" class="input-group" style="margin-bottom:25px">
+          <span class="input-group-addon" >
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <input id="clave2" type="password" class="form-control" name="password" placeholder="Repite la clave">
+        </div>
+        <p id="nombreBtn" style="text-align: center;">
+          <button type="button" id="nombreBtn" class="btn btn-primary btn-md">Registrarse</button>
+        </p>
+      </div-->
+      <div class="contenedor" id="contenedorMenuPrincipal">
+        <section class="info" id="main">
+          <article class="infoColumna">
+              <div class="image-take">
+                <label for="btnRegistro">
+                    <img src="cliente/img/registro.png" alt ="Click aquí para registrarte" title ="Click aquí para registrarte"> 
+                </label>
+                <input id="btnRegistro" name="registro" type="button" style="display: none;" onclick="cw.mostrarRegistroMedico()">
+                <h2 class="infoTitulo">Registrarse</h2>
+              </div>
+          </article>
+          <article class="infoColumna">
+              <div class="image-take">
+                <label for="btnInicio">
+                    <img src="cliente/img/login.png" alt ="Click aquí para iniciar sesión" title ="Click aquí para iniciar sesión">
+                </label>
+                <input id="btnInicio" name="inicio" type="button" style="display: none;" onclick="cw.mostrarLogin()">
+                <h2 class="infoTitulo">Iniciar Sesión</h2>
+              </div>
+          </article>
+        </section>
+      </div>
+      <script type="text/javascript">var x = document.getElementById("salir");
+            x.style.display=="none";</script>
+      <!--div id="mainPrincipal">
+            <script>
+          function load() {
+            document.getElementById('inicio').click();
+          }
+          window.onload = load;
+        </script>
+      </div-->
+      <div id="menuFoto"></div>
+      <div id="cabecera"></div>
+      <div id="menuPacientes"></div>
+      <div id="menuRegistro"></div>
+      <div id="menuRegistroP"></div>
+      <div id="menuAngulos"></div>
+      <div id="modalG"></div>
+      <div id="modalC"></div>
+      <div id="modalA"></div>
+      <div id="modalLO"></div>
+      <div id="menuActuP"></div>
+      <div id="ang"></div>
+      <div id="btnDownload"></div>
+
+      <!--div id="menuP" class="nuevoP">
+        <h2 id="altaP">Nuevo paciente</h2>
+        <div class="image-nuevo">
+          <label for="btnNuevo">
+              <img src="cliente/img/nuevo.png" alt ="Click aquí para crear un nuevo paciente" title ="Click aquí para crear un nuevo paciente"> 
+          </label>
+          <input id="btnNuevo" name="nuevo" type="button" style="display: none;" onclick="onNuevo();"/>
+        </div>
+      </div>
+
+      <h2 id="listaP" style="justify-content: flex-start;">Lista de pacientes</h2>
+      <p>Diferentes Elementos</p-->
+
+
+      <!--div class="contenedor" id="contenedorPrincipal">
         <div class="resultado" id="canvasPosition" style="visibility: hidden;"></div>
         <div id="ang"></div>
         <div id="btnDownload"></div>
@@ -73,15 +183,15 @@
             </div>
           </article>
         </section>
-      </div>
+      </div-->
   </main>
-
   <footer class="footer">
     <p class="autor">&copy; Universidad de Castilla-La Mancha 2021</p>
     <p class="autor">Miguel Angel Picazo Fernandez   -  MiguelAngel.Picazo@alu.uclm.es</p>
   </footer>
     
     <script type="text/javascript">
+      document.getElementById('salir').style.display="none";
       var cw=new ControlWeb($);
       var ws = new ClienteWS();
       ws.ini();
@@ -93,8 +203,7 @@
         var select = document.getElementById('btnSelect').files.length;
         console.log(doc);
         if(doc+select==0){
-          cw.mostrarModal("Advertencia!","No has tomado o seleccionado ninguna foto, hazlo por favor", "#F6FF81");
-          document.getElementById("open").click();
+          cw.mostrarModal("Advertencia!","No has tomado o seleccionado ninguna foto, hazlo por favor", "yellow");
         }
 
         if(doc != 0){
@@ -129,11 +238,33 @@
     </script>
 
     <script type="text/javascript">
+      function funcion_primera(){
+        cw.guardarP();
+            var x = document.getElementById("salir");
+            x.style.display=="none";
+        if(cw.logeado==true && cw.toLogOut){
+              x.style.display = "contents";
+              cw.confirmarLogOut();       
+            }
+          
+        }
+       window.onload = funcion_primera();
+     </script>
+
+    <script type="text/javascript">
+      function onReturn(){
+        var login=document.getElementById('login');
+        if(login)
+          cw.mostrarLogin();
+      }
+    </script>
+
+    <script type="text/javascript">
       var canvas = document.getElementsByTagName("canvas")[0];
       function descargar(){
         document.getElementById("download").click();
-        cw.mostrarModal("Imagen descargada!!", "La imagen se ha descargado con éxito", "#39DF1E");
-        document.getElementById("open").click();
+        cw.mostrarModal("Imagen descargada!!", "La imagen se ha descargado con éxito", "limegreen");
+        //document.getElementById("open").click();
         var image = document.getElementById("myCanvas").toDataURL("image/png");
         var msg = JSON.stringify(image);
         var xhr = new XMLHttpRequest();
@@ -150,12 +281,33 @@
     </script>
 
     <script type="text/javascript">
+      function registrarAngulo(){
+        var ang=getAngulo();
+        console.log("Angulo HTML-->"+cliR.ang);
+
+        cliR.registroAngulo(cliR.ang);
+      }
+    </script>
+
+    <script type="text/javascript">
       var download = document.getElementById("download");
 
       download.addEventListener("click", function () {
           var image = document.getElementById("myCanvas").toDataURL("image/png").replace(/^data:image\/[^;]/, "data:application/octet-stream");
           download.setAttribute("href", image);
       });
+    </script>
+
+    <script type="text/javascript">
+      function onFoto(){
+        cw.menuFoto();
+      }
+    </script>
+
+    <script type="text/javascript">
+      function onMenuPacientes(){
+        cw.mostrarRegistroPaciente();
+      }
     </script>
   </body>
 </html>

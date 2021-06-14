@@ -14,9 +14,16 @@ var path = require('path');
 var traceSkeleton = require("./servidor/traceSkeleton.js");
 var wss = require("./servidor/servidorWS.js");
 var servicio = require("./servidor/servicio.js");
+var modelo = require("./servidor/modelo.js");
+var bodyParser=require("body-parser");
 
+var ges = new modelo.Gestion();
 var servidorWS = new wss.ServidorWS();
 var service = new servicio.Servicio(servidorWS);
+
+app.use(express.static(__dirname + '/'));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 5000);
 
@@ -32,7 +39,6 @@ app.use(function (req, res, next) {
 });
 
 //var trace = new traceSkeleton.TraceSkeleton();
-
 app.get('/', function (request, response) {
     var contenido = fs.readFileSync(__dirname + "/cliente/index.html"); 
     
@@ -176,6 +182,111 @@ app.post('/download', function (request, response) {
     }
 });
 
+
+//PEticiones BDD
+app.post('/registrarMedico',function(request,response){
+	var nombre=request.body.nombre;
+	var apellido=request.body.apellido;
+	var email=request.body.email;
+	var clave=request.body.clave;
+	//Mirar contraseña en cliente
+	ges.registrarMedico(nombre,apellido,email,clave,function(data){
+		response.send(data);
+	});
+});
+
+app.post('/registrarPaciente',function(request,response){
+	var nombre=request.body.nombre;
+	var apellido=request.body.apellido;
+	var tlf=request.body.tlf;
+	var medico=request.body.medico;
+	//Mirar contraseña en cliente
+	ges.registrarPaciente(nombre,apellido,tlf,medico,function(data){
+		response.send(data);
+	});
+});
+
+app.post('/registrarAngulo',function(request,response){
+	var ang=request.body.ang;
+	var paciente=request.body.paciente;
+	console.log("REGISTRAR ANGULO-->"+	ang);
+	console.log("REGISTRAR PACIENTE-->"+	paciente);
+	//Mirar contraseña en cliente
+	ges.registrarAngulo(ang,paciente,function(data){
+		response.send(data);
+	});
+});
+
+app.post("/login",function(request,response){
+    var email=request.body.email;
+    var pass=request.body.password;
+    //Mirar contraseña en cliente   
+    ges.iniciarSesion(email,pass,function(usr){
+        response.send(usr);
+    });       
+});
+
+app.post("/actualizar",function(request,response){
+    var _id=request.body._id;
+    ges.actualizar(_id,function(usr){
+        response.send(usr);
+    });       
+});
+
+app.delete("/eliminarPaciente/:uid",function(request,response){
+    var uid=request.params.uid;
+    console.log("UidEliminarPaciente.Index-->"+uid);
+    ges.eliminarPaciente(uid,function(usr){
+        response.send(usr);
+    });       
+});
+
+app.put("/actualizarPaciente",function(request,response){
+    ges.actualizarPaciente(request.body,function(result){
+            response.send(result);
+    });
+});
+
+app.delete("/eliminarAngulo/:uid",function(request,response){
+    var uid=request.params.uid;
+    console.log("UidEliminarAngulo.Index-->"+uid);
+    ges.eliminarAngulo(uid,function(usr){
+        response.send(usr);
+    });       
+});
+
+app.get('/obtenerListaPacientes/:uid',function(request,response){
+	//Mirar contraseña en client
+	console.log("0")
+	var medico= request.params.uid;
+	//var medico=ges.obtenerUsuario(request.params.uid);
+	if(medico){
+		//medico = "0";
+		ges.obtenerListaPacientes(medico,function(data){
+			response.send(data);
+		});
+
+	}else{
+        response.send({'resultados':[]});
+    }
+});
+
+app.get('/obtenerListaAngulos/:uid',function(request,response){
+	//Mirar contraseña en client
+	console.log("0")
+	var paciente= request.params.uid;
+	//var medico=ges.obtenerUsuario(request.params.uid);
+	if(paciente){
+		//medico = "0";
+		ges.obtenerListaAngulos(paciente,function(data){
+			response.send(data);
+		});
+
+	}else{
+        response.send({'resultados':[]});
+    }
+});
+//PORT SERVER
 server.listen(app.get('port'), function () {
     console.log('App is running on port ', app.get('port'));
 });

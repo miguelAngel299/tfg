@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^2.21.0",
+    "rollup": "^2.51.1",
     "rollup-plugin-ascii": "^0.0.3",
     "rollup-plugin-terser": "^6.1.0",
     "terser": "^4.8.0"
@@ -39,7 +39,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "formidable": "^1.2.2",
+    "mongodb": "^3.6.3",
     "socket.io": "^2.0.3",
-    "ws": "^7.4.4"
+    "underscore": "^1.13.1",
+    "ws": "^7.4.6"
   }
 }
