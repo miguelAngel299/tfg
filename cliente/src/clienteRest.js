@@ -2,6 +2,7 @@ function ClienteRest(){
 	var clir = this;
 	var uid = undefined;
 	var ang = undefined;
+	var email = undefined;
 	this.subirImg=function(formData){
 		$.ajax({
           type: 'POST',
@@ -52,8 +53,8 @@ function ClienteRest(){
           	//Lo mando a login
           	var uid = clir.obtenerUid();
           	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
-	        	cw.mostrarMenuP(data);
-	        	cw.logeado=true;cw.toLogOut=true;
+	        	//cw.logeado=true;cw.toLogOut=true;
+	        	cw.mostrarLogin();
 	    	});               
              //mostrarAviso("Te hemos enviado un email para confirmar tu cuenta");
           }
@@ -76,6 +77,7 @@ function ClienteRest(){
         success:function(data){
           if (data._id==undefined){
             cw.mostrarModal("Advertencia!","No se ha podido registrar", "#F6FF81");
+            cw.mostrarRegistroPaciente();
           }
           else{
           	//modal 
@@ -119,14 +121,19 @@ function ClienteRest(){
       });
   	}
 
-  	this.obtenerUid = function (){
-  		if(!this.uid){
+  	this.guardarUid = function (){
 	  		if ($.cookie("usr")!=undefined){
 	    		var usr=JSON.parse($.cookie("usr"));
-	    		this.uid=usr._id;
-	  		}
-	  	}
+		  		if(usr._id && (!this.uid || this.uid!=usr._id)){
+			    		this.uid=usr._id;
+			    		this.email=usr.email;
+			  		}
+			  	}
 	  	return this.uid;	
+  	}
+
+  	this.obtenerUid = function(){
+  		return this.uid;
   	}
 
   	this.obtenerUidPaciente = function (){
@@ -136,6 +143,16 @@ function ClienteRest(){
     		return usr._id;
   		}
 	  	return undefined;	
+  	}
+  	this.obtenerPaciente = function (){
+  		if ($.cookie("usr")!=undefined){
+	    		var usr=JSON.parse($.cookie("usr"));
+  				return "Paciente:" +  usr.nombre + " "+ usr.apellido;
+	    	}
+	    return "";
+  	}
+  	this.obtenerMedico = function (){
+	  	return "Doctor: "+this.email;	
   	}
 
 	this.obtenerListaPacientes=function(){
@@ -284,9 +301,12 @@ function ClienteRest(){
 	        console.log('el usuario ha iniciado la sesión');
 	        $.cookie("usr",JSON.stringify(data));
 	        //cw.mostrarMenuP();
+	        console.log(data);
+	        clir.guardarUid();
 	        var uid = clir.obtenerUid();
 	        $.getJSON("/obtenerListaPacientes/"+uid,function(data){           
 	        	cw.mostrarMenuP(data);
+
 	        	cw.logeado=true;
 	    	});
 	       }

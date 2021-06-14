@@ -8,6 +8,7 @@ function ClienteWS(){
 	this.ini=function(){
 		this.socket=io.connect(/*Se puede definir una URL*/);
 		this.lanzarSocketSrv();
+		cw.primerMenu();
 	}
 
 	this.obtenerCodigo=function(){

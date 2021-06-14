@@ -35,6 +35,7 @@ function Gestion() {
                 callback({'email':''});
             }
             else{
+            	console.log(usr);
                 ges.medicos[usr._id]=usr;               
                 callback(usr);
             }

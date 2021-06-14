@@ -67,6 +67,26 @@ a:hover {
 	box-shadow: 1px 1px 3px #333;
 }
 
+.nombreMedico > h4 {
+    position: fixed;
+    margin-left: 25%;
+    top: 0;
+    color: black;
+    margin-top: 25%;
+    text-shadow: 0 0 black;
+    font-weight: bolder;
+}
+
+.nombreMedico > h5 {
+    position: fixed;
+    margin-left: 25%;
+    top: 0;
+    color: black;
+    margin-top: 25%;
+    text-shadow: 0 0 black;
+    font-weight: bolder;
+}
+
 .header .contenedor {
 	display: flex;
 	justify-content: space-between;

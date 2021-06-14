@@ -20,9 +20,9 @@ function ControlWeb($){
 	        //document.getElementById('entrar').click();
 	}
 	this.primerMenu=function(){
-		funcion_primera();
-		$('#contenedorMenuPrincipal').remove();
-		var primero = '<div class="contenedor" id="contenedorMenuPrincipal">';
+		//funcion_primera();
+		$('#contenedorMenuPrincipal2').remove();
+		var primero = '<div class="contenedor" id="contenedorMenuPrincipal2">';
         primero+='<section class="info" id="main">';
           primero+='<article class="infoColumna">';
               primero+='<div class="image-take">';
@@ -41,6 +41,7 @@ function ControlWeb($){
                 primero+='<input id="btnInicio" name="inicio" type="button" style="display: none;">';
                 primero+='<h2 class="infoTitulo">Iniciar Sesión</h2>';
               primero+='</div></article></section></div>';
+        $('#contenedorMenuPrincipal').append(primero);
 
         $('#btnRegistro').click(function(){
         	console.log("LLEGA");
@@ -55,7 +56,6 @@ function ControlWeb($){
 	        //if('#btnFotoPaciente').isClicked()
 	    });
 
-        return primero;
 	}
 
 	this.menuFoto=function(){
@@ -153,7 +153,8 @@ function ControlWeb($){
 	    $('#atrasBtn').click(function(){
 	    	//this.seleccion=document.getElementById("contenedorMenuPrincipal");
 	    	cw.limpiar();
-	        document.getElementById("myMain").appendChild(cw.seleccion);
+	        //document.getElementById("myMain").appendChild(cw.seleccion);
+	        yo.primerMenu();
 	    });
 
 	    $('#logOut').click(function(){
@@ -198,6 +199,7 @@ function ControlWeb($){
 		        cadena+='<input id="atrasBtn" type="button" class="atrasBtn" value="Atras" >';
 		      cadena+='</div>';
 		    cadena+='</div>';
+		    cadena += '<div class="nombreMedico"><h4 >'+cw.nombrePaciente()+'</h4></div>';
 			cadena += '<h2 id="altaP">Nueva Foto</h2>';
 				cadena += '<div class="image-nuevo">';
 					cadena += '<label for="btnNuevaF"><img src="cliente/img/nuevoP.png" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una nueva foto"></label>';
@@ -271,6 +273,14 @@ function ControlWeb($){
 		return cadena;
 	}
 
+	this.nombreMedico=function(){
+		var nombre = cliR.obtenerMedico();
+		return nombre;
+	}
+	this.nombrePaciente = function(){
+		return cliR.obtenerPaciente();
+	}
+
 	this.mostrarMenuP=function(lista){
 		if(document.getElementById('salir').style.display=="none"){document.getElementById('salir').style.display="contents";};
 		var sel = this.seleccion;
@@ -286,6 +296,7 @@ function ControlWeb($){
 		        cadena+='<input id="atrasBtn" type="button" class="atrasBtn" value="Atras" >';
 		      cadena+='</div>';
 		    cadena+='</div>';
+		    cadena += '<div class="nombreMedico"><h4 >'+cw.nombreMedico()+'</h4></div>';
 			cadena += '<h2 id="altaP">Nuevo paciente</h2>';
 				cadena += '<div class="image-nuevo">';
 					cadena += '<label for="btnNuevo"><img src="cliente/img/nuevoP.png" alt ="Click aquí para crear un nuevo paciente" title ="Click aquí para crear un nuevo paciente"></label>';
@@ -501,10 +512,12 @@ function ControlWeb($){
 	}
 
 	this.dialogoLogOut=function(title, msg){
+
 		$('#modalGeneral').remove();
 		$('#modalConfirmacion').remove();
 		$('#modalLogOut').remove();
 		this.confirm=false;
+
 
 		var cadena = '<div class="modal" id="modalLogOut" tabindex="-1" role="dialog">';
 			cadena += '<div class="modal-dialog" role="document">';
@@ -532,6 +545,7 @@ function ControlWeb($){
 			cw.toLogOut	=false;
 			cw.logeado=false;
 	      	cliR.mostrarLO();
+	      	cliR.eliminarCookies();
 	    });
 
 	    $('#noCheck').click(function(){
@@ -632,6 +646,7 @@ function ControlWeb($){
 
 		$('#cancel').click(function(){
 	        cw.limpiar();
+	        cw.primerMenu();
 	        document.getElementById("myMain").appendChild(cw.seleccion);
 	        //document.getElementById('entrar').click();
 	        //if('#btnFotoPaciente').isClicked()
@@ -639,6 +654,7 @@ function ControlWeb($){
 
 	    $('#atrasBtn').click(function(){
 	    	cw.limpiar();
+	    	cw.primerMenu();
 	        document.getElementById("myMain").appendChild(cw.seleccion);
 	    });
 
@@ -758,10 +774,13 @@ function ControlWeb($){
       		var apellido = $('#apellidoP').val();
       		var tlf = $('#nTlf').val();
 
-        	
-    		$('#registroPaciente').remove();
-    		$('#btnRegistro').remove();   
-    		cliR.registroPaciente(nombre, apellido, tlf);
+        	if(nombre!=undefined && apellido!=undefined && tlf!=undefined){
+	    		$('#registroPaciente').remove();
+	    		$('#btnRegistro').remove();   
+	    		cliR.registroPaciente(nombre, apellido, tlf);
+	    	}else{
+	    		cw.mostrarRegistroPaciente();
+	    	}
       	});
 
       	$('#logOut').click(function(){
@@ -854,7 +873,7 @@ function ControlWeb($){
 
 	this.limpiar=function(){
 		//cliR.guardarMenu(document.getElementById('contenedorMenuPrincipal'));
-		$('#contenedorMenuPrincipal').remove();
+		$('#contenedorMenuPrincipal2').remove();
 	  	$('#btnFoto').remove();
 	  	$('#menuP').remove();
 		$('#pacientesL').remove();
