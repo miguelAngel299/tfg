@@ -13,6 +13,7 @@ body {
 	width: 100%;
 	margin: 0;
 	font-family: 'Lato', sans-serif;
+	overflow-x: hidden;
 }
 
 h1, h2 h3, h4, h5, h6 {
@@ -88,8 +89,9 @@ a:hover {
 }
 
 .header .contenedor {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
 }
 
 .icon-photo{
@@ -290,7 +292,6 @@ tbody td:before {
     box-shadow: 1px 1px 3px #333;
 }
 .btn-primary{
-	margin-bottom: 2%;
 }
 
 .registro > p {
@@ -304,6 +305,10 @@ tbody td:before {
 
 .atrasBtn{
 	display:none;
+}
+
+.btnSalir{
+	margin-left: auto;
 }
 
 .image-download > input{

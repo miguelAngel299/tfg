@@ -139,12 +139,13 @@ function ControlWeb($){
 	  	cadena=cadena+'<span class="input-group-addon" ><i class="glyphicon glyphicon-lock"></i></span>';
 	  	cadena=cadena+'<input id="clave" type="password" class="form-control" name="password" placeholder="Escribe tu clave"></div>';
 	  	cadena = cadena + '<p id="nombreBtn" style="text-align: center;"><button type="button" id="nombreBtn" class="btn btn-primary btn-md" style="margin-right:10%;">Iniciar sesión</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-left:10%;">Cancelar</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-left:10%;margin-top:2%">Cancelar</button>';
 	  	cadena=cadena+'</p></div>';
 	  	$('#cabecera').append(cadena);
 
 	  	$('#cancel').click(function(){
 	  		cw.limpiar();
+	  		cw.primerMenu();
 	        document.getElementById("myMain").appendChild(cw.seleccion);
 	        //document.getElementById('entrar').click();
 	        //if('#btnFotoPaciente').isClicked()
@@ -638,7 +639,7 @@ function ControlWeb($){
     		cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
     			cadena += '<button type="button" id="nombreBtn" class="btn btn-primary btn-md">Registrarse</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; ">Cancelar</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-top:2%">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
 
@@ -754,7 +755,7 @@ function ControlWeb($){
 			cadena += '</div>';
     		cadena += '<p style="text-align: center;">';
     			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md">Registrarse</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; ">Cancelar</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-top:2% ">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
 
