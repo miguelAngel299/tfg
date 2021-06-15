@@ -173,8 +173,6 @@ function ControlWeb($){
 	        	var nombre=$('#email').val();
 	        	var clave=$('#clave').val();
 	        	//$('#nombre').remove();
-	        	$('#login').remove();
-	        	$('#nombreBtn').remove();  
 	        	cw.logeado=true; 
 	        	cliR.loginUsuario(nombre,clave);
 	      	});
@@ -264,7 +262,7 @@ function ControlWeb($){
 	}
 
 	this.botonesAngulo=function(){
-		var cadena = '<div id="botonesAng" class="botones">';
+		var cadena = '<div id="botonesAng" class="botonesP">';
 		cadena+= '<div class="btnPaciente"><label for="btnDeleteAngulo">';
 		cadena += '<h1 class="icon-delete" alt ="Click aquí para eliminar el angulo" title ="Click aquí para eliminar el angulo"></h1></label>';
 		cadena+='<input id="btnDeleteAngulo" type="button" class="btnFinal" value="delete"></div></div>';
@@ -410,7 +408,7 @@ function ControlWeb($){
 				cadena += '<input id="nTlf" type="text" class="form-control" name="nTlf" placeholder="'+data.tlf+'"  value="'+data.tlf+'" required>';
 			cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
-    			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md">Actualizar</button>';
+    			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md" style="margin-left:5%">Actualizar</button>';
     			cadena += '<button type="button" id="btnCancel" class="btn btn-primary btn-md" style=" background-color:grey; border-color:black;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
@@ -578,7 +576,7 @@ function ControlWeb($){
 	}
 
 	this.botonesPaciente=function(){
-		var cadena = '<div id="botonesP" class="botones"><div class="btnPaciente"><label for="btnFotoPaciente">';
+		var cadena = '<div id="botonesP" class="botonesP"><div class="btnPaciente"><label for="btnFotoPaciente">';
 		cadena += '<h1 class="icon-cam" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una foto"></h1></label>';
 		cadena += '<input id="btnFotoPaciente" type="button" class="btnFinal" value="menuPacientes"></div>';
 		cadena += '</hr>';
@@ -638,8 +636,8 @@ function ControlWeb($){
             	cadena += '<input id="clave2" type="password" class="form-control" name="password" placeholder="Repite la clave">';
     		cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
-    			cadena += '<button type="button" id="nombreBtn" class="btn btn-primary btn-md">Registrarse</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-top:2%">Cancelar</button>';
+    			cadena += '<button type="button" id="nombreBtn" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
 
@@ -754,8 +752,8 @@ function ControlWeb($){
 				cadena += '<input id="nTlf" type="text" class="form-control" name="nTlf" placeholder="Numero de telefono" required>';
 			cadena += '</div>';
     		cadena += '<p style="text-align: center;">';
-    			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md">Registrarse</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-top:2% ">Cancelar</button>';
+    			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
 

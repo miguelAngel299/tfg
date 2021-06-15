@@ -92,6 +92,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     justify-content: center;
+    max-block-size: fit-content;
 }
 
 .icon-photo{
@@ -132,11 +133,11 @@ a:hover {
 
 
 /*--------------- Estilo login ------------ */
-.login{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 90px;
-	width: 50%;
+.login {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40%;
+    width: 75%;
 }
 .login >h2{
 	font-size: x-large;
@@ -161,15 +162,16 @@ a:hover {
 }
 
 .login > p {
-	text-align: center;
+    text-align: center;
     inline-size: min-content;
     justify-items: center;
     display: inline-flex;
-    flex-wrap: wrap;
     align-content: center;
-    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
-    margin-left: 20%;
 }
 
 .registro > p{
@@ -190,6 +192,9 @@ a:hover {
 	color: #fff;
 	padding: 5px;
 	text-align: center;
+	bottom: 0;
+	max-height: 100%;
+  	position: fixed;
 }
 
 
@@ -199,7 +204,7 @@ a:hover {
 
 }
 .main .contenedor {
-	margin-top: 15%;
+	margin-top: 25%;
 	width: 70%;
 	margin-left: auto;
   	margin-right: auto;
@@ -213,6 +218,19 @@ a:hover {
     display: inline-flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    margin-left: 0;
+    justify-content: space-around;
+    margin-bottom: 30%;
+}
+
+.botonesP {
+    /* margin-left: 40%; */
+    /* margin-right: 40%; */
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-left: 0;
+    justify-content: space-around;
 }
 
 table {
@@ -243,7 +261,7 @@ tbody td:before {
     display: none;
 }
 .image-take img{
-	width: 75%;
+	width: 100%;
 	box-shadow: 2px 2px 3px #333;
 	margin-left: auto;
   	margin-right: auto;
@@ -277,6 +295,10 @@ tbody td:before {
 	box-shadow: 1px 1px 3px #333;
 }
 
+#cabeceraP{
+	font-size: 23px;
+}
+
 
 .salir {
     margin-top: 0;
@@ -295,12 +317,18 @@ tbody td:before {
 }
 
 .registro > p {
-    text-align: center;
-    inline-size: min-content;
-    justify-items: center;
-    display: inline-flex;
-    margin-left: 20%;
-    flex-direction: column;
+    /* text-align: center; */
+    /* inline-size: min-content; */
+    /* justify-items: center; */
+    /* display: inline-flex; */
+    /* margin-left: 20%; */
+    /* flex-direction: row; */
+    /* flex-wrap: nowrap; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 0;
+    /* align-content: center; */
+    /* align-items: center; */
 }
 
 .atrasBtn{

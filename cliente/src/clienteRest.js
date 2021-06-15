@@ -295,6 +295,7 @@ function ClienteRest(){
 	    success:function(data){
 	      if (data.email==""){
 	        //mostrarLogin();
+	        cw.mostrarModal("Advertencia!", "Usuario o contraseña incorrecta", "yellow");
 	        console.log("Medico no existe")
 	      }
 	      else{
