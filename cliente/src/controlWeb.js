@@ -201,7 +201,7 @@ function ControlWeb($){
 	      	});
 	    }
 	    else
-	      	yo.mostrarModal("Advertencia!","Debe ser una dirección de email","yellow");
+	      	yo.mostrarModal("Advertencia!","Debe ser una dirección de email","white");
 	  	});
 	}
 
@@ -427,11 +427,8 @@ function ControlWeb($){
 				cadena += '<input id="nTlf" type="text" class="form-control" name="nTlf" placeholder="'+data.tlf+'"  value="'+data.tlf+'" required>';
 			cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
-<<<<<<< HEAD
     			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md" style="margin-right:25%">Actualizar</button>';
-=======
     			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md" style="margin-left:5%">Actualizar</button>';
->>>>>>> e4855ac5a176dd0edc6f9b8676f336fecc183187
     			cadena += '<button type="button" id="btnCancel" class="btn btn-primary btn-md" style=" background-color:grey; border-color:black;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
@@ -775,11 +772,8 @@ function ControlWeb($){
 				cadena += '<input id="nTlf" type="text" class="form-control" name="nTlf" placeholder="Numero de telefono" required>';
 			cadena += '</div>';
     		cadena += '<p style="text-align: center;">';
-<<<<<<< HEAD
     			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:20%">Registrarse</button>';
-=======
     			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
->>>>>>> e4855ac5a176dd0edc6f9b8676f336fecc183187
 	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';

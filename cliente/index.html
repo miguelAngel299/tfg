@@ -204,7 +204,7 @@
         var select = document.getElementById('btnSelect').files.length;
         console.log(doc);
         if(doc+select==0){
-          cw.mostrarModal("Advertencia!","No has tomado o seleccionado ninguna foto, hazlo por favor", "yellow");
+          cw.mostrarModal("Advertencia!","No has tomado o seleccionado ninguna foto, hazlo por favor", "white");
         }
 
         if(doc != 0){
@@ -264,7 +264,7 @@
       var canvas = document.getElementsByTagName("canvas")[0];
       function descargar(){
         document.getElementById("download").click();
-        cw.mostrarModal("Imagen descargada!!", "La imagen se ha descargado con éxito", "limegreen");
+        cw.mostrarModal("Imagen descargada!!", "La imagen se ha descargado con éxito", "white");
         //document.getElementById("open").click();
         var image = document.getElementById("myCanvas").toDataURL("image/png");
         var msg = JSON.stringify(image);
