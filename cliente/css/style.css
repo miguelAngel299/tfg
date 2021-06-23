@@ -256,7 +256,6 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-	margin-top: 25%;
 	width: 70%;
 	margin-left: auto;
   	margin-right: auto;
@@ -406,7 +405,6 @@ tbody td:before {
     /* flex-wrap: nowrap; */
     flex-direction: row;
     flex-wrap: nowrap;
-    margin-left: 0;
     /* align-content: center; */
     /* align-items: center; */
 }
@@ -629,7 +627,7 @@ a:hover {
     margin-top: -12%;
     /* margin-left: -5px; */
     position: relative;
-    font-family: Century Gothic;
+    font-family: 'Lato', sans-serif;
     font-size: x-large;
     -webkit-text-stroke: 0.2px black;
     text-shadow: 0.1em 0.1em 0.1em black;
@@ -769,6 +767,86 @@ a:hover {
 		max-width: 100%;
 		height: auto;
 		margin:0 auto;
+	}
+
+	.main .contenedor {
+		margin-bottom: 20%;
+	}
+
+	.atras{
+		margin-top: 70px;
+		width: 18%;
+	}
+	.login{
+		margin-top: 40%;
+	}
+
+	.login > p{
+		margin-left: 5%;
+	}
+
+	.nuevoP {
+		margin-top: 110px;
+	}
+
+	.nuevoP > h2{
+		font-size: x-large;
+
+	}
+
+	.listaPacientes > h2{
+		font-size: x-large;
+	}
+
+	.listaPacientes{
+		margin-bottom: 33%;
+	}
+
+	#cabeceraP {
+		font-size: large;
+	}
+
+	.registro {
+		margin-top: 140px;
+		width: 73%;
+	}
+
+	.registroM {
+		margin-top: 130px;
+		width: 73%;
+		margin-bottom: 25%;
+	}
+	.registro > p {
+		margin-left: 5%;
+	}
+
+	.registroActu > p {
+		margin-left: 10%;
+	}
+
+	.registroM > p {
+		margin-left: 10%;
+	}
+	.info{
+		margin-bottom: 35%; 
+	}
+	.letterSpinner{
+		margin-top: -14%;
+		font-size: large;
+	}
+
+	.spinner{
+		margin-top: 60%;
+	}
+
+	.rotate-right{
+		margin-top: -21%;
+	}
+
+	.nombreMedico > h4 {
+		font-size: medium;
+		margin-left: 23%;
+		margin-top: 28%;
 	}
 }
 

@@ -11,7 +11,7 @@ var path = require('path');
 //var forked = fork('./servidor/servicio.js');
 //const { exec } = require('child_process');
 
-var traceSkeleton = require("./servidor/traceSkeleton.js");
+//var traceSkeleton = require("./servidor/traceSkeleton.js");
 var wss = require("./servidor/servidorWS.js");
 var servicio = require("./servidor/servicio.js");
 var modelo = require("./servidor/modelo.js");

@@ -428,7 +428,6 @@ function ControlWeb($){
 			cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
     			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md" style="margin-right:25%">Actualizar</button>';
-    			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md" style="margin-left:5%">Actualizar</button>';
     			cadena += '<button type="button" id="btnCancel" class="btn btn-primary btn-md" style=" background-color:grey; border-color:black;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
@@ -773,7 +772,7 @@ function ControlWeb($){
 			cadena += '</div>';
     		cadena += '<p style="text-align: center;">';
     			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:20%">Registrarse</button>';
-    			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
+    			//cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
 	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
@@ -896,8 +895,11 @@ function ControlWeb($){
 
 	this.limpiar=function(){
 		//cliR.guardarMenu(document.getElementById('contenedorMenuPrincipal'));
+		if ($('.modal-backdrop').is(':visible'))
+			$('.modal-backdrop').remove(); 
+		
 		$('#defaultCanvas0').remove();
-		$('#modalGeneral').remove();
+		//$('#modalGeneral').remove();
 		$('#contenedorMenuPrincipal2').remove();
 	  	$('#btnFoto').remove();
 	  	$('#menuP').remove();
