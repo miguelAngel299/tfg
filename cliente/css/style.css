@@ -29,6 +29,9 @@ h1, h2 h3, h4, h5, h6 {
 	height: auto;
 	border: 1px solid #d9d9d9;
 }
+#defaultCanvas0{
+	width: 0%;
+}
 
 @supports(object-fit: cover){
     #myCanvas{
@@ -92,6 +95,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     justify-content: center;
+    max-block-size: fit-content;
 }
 
 .icon-photo{
@@ -115,6 +119,9 @@ a:hover {
 }
 
 /*------------------- Estilos de info -------------- */
+.info {
+    margin-bottom: 30%;
+}
 .infoColumna {
 	background: #fff;
 	color: #333;
@@ -132,11 +139,11 @@ a:hover {
 
 
 /*--------------- Estilo login ------------ */
-.login{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 90px;
-	width: 50%;
+.login {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40%;
+    width: 75%;
 }
 .login >h2{
 	font-size: x-large;
@@ -146,30 +153,45 @@ a:hover {
 .registro{
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 90px;
-	width: 50%;
+	margin-top: 110px;
+	width: 70%;
+}
+
+.registroActu{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 110px;
+	width: 70%;
+}
+
+.registroM{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 110px;
+	width: 70%;
 }
 
 .nuevoP{
-	margin-top: 90px;
+	margin-top: 105px;
 	text-align: center;
 }
 
-.listaPacientes{
-	margin-right: auto;
-	margin-left: 10%;
+.listaPacientes {
+    margin-right: auto;
+    margin-left: 10%;
+    margin-bottom: 25%;
 }
-
 .login > p {
-	text-align: center;
+    text-align: center;
     inline-size: min-content;
     justify-items: center;
     display: inline-flex;
-    flex-wrap: wrap;
     align-content: center;
-    justify-content: space-between;
+    margin-left: 12%;
+    margin-right: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
-    margin-left: 20%;
 }
 
 .registro > p{
@@ -181,7 +203,31 @@ a:hover {
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    margin-left: 20%;
+    margin-left: 12%;
+}
+
+.registroActu > p{
+	text-align: center;
+    inline-size: min-content;
+    justify-items: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 12%;
+}
+
+.registroM > p{
+	text-align: center;
+    inline-size: min-content;
+    justify-items: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15%;
 }
 
 /* ------------------ Estilos de footer ------- */
@@ -190,6 +236,10 @@ a:hover {
 	color: #fff;
 	padding: 5px;
 	text-align: center;
+	bottom: 0;
+	max-height: 100%;
+  	position: fixed;
+  	width: 100%;
 }
 
 
@@ -199,11 +249,11 @@ a:hover {
 
 }
 .main .contenedor {
-	margin-top: 15%;
-	width: 70%;
-	margin-left: auto;
-  	margin-right: auto;
-  	text-align: center;
+    margin-top: 12%;
+    width: 69%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 
@@ -213,6 +263,19 @@ a:hover {
     display: inline-flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    margin-left: 0;
+    justify-content: space-around;
+    margin-bottom: 30%;
+}
+
+.botonesP {
+    /* margin-left: 40%; */
+    /* margin-right: 40%; */
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-left: 0;
+    justify-content: space-around;
 }
 
 table {
@@ -243,7 +306,7 @@ tbody td:before {
     display: none;
 }
 .image-take img{
-	width: 75%;
+	width: 100%;
 	box-shadow: 2px 2px 3px #333;
 	margin-left: auto;
   	margin-right: auto;
@@ -277,6 +340,10 @@ tbody td:before {
 	box-shadow: 1px 1px 3px #333;
 }
 
+#cabeceraP{
+	font-size: 23px;
+}
+
 
 .salir {
     margin-top: 0;
@@ -294,13 +361,46 @@ tbody td:before {
 .btn-primary{
 }
 
+.registroM > p {
+    /* text-align: center; */
+    /* inline-size: min-content; */
+    /* justify-items: center; */
+    /* display: inline-flex; */
+    /* margin-left: 20%; */
+    /* flex-direction: row; */
+    /* flex-wrap: nowrap; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    /* align-items: center; */
+}
+
+.registroActu > p {
+    /* text-align: center; */
+    /* inline-size: min-content; */
+    /* justify-items: center; */
+    /* display: inline-flex; */
+    /* margin-left: 20%; */
+    /* flex-direction: row; */
+    /* flex-wrap: nowrap; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    /* align-items: center; */
+}
+
 .registro > p {
-    text-align: center;
-    inline-size: min-content;
-    justify-items: center;
-    display: inline-flex;
-    margin-left: 20%;
-    flex-direction: column;
+    /* text-align: center; */
+    /* inline-size: min-content; */
+    /* justify-items: center; */
+    /* display: inline-flex; */
+    /* margin-left: 20%; */
+    /* flex-direction: row; */
+    /* flex-wrap: nowrap; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    /* align-items: center; */
 }
 
 .atrasBtn{
@@ -435,6 +535,7 @@ a:hover {
 	max-width: 100%;
 	height: auto;
 	margin:0 auto;
+	overflow-x: scroll;
 }
 /*
 .modal-contenido{
@@ -479,18 +580,86 @@ a:hover {
     padding-top: 5vh;
 }
 */
+
+.waiting{
+	margin: 25%;
+}
+.spinner-outside{
+	width:100px;
+	height: 100px;
+	border : solid 6px;
+	border-color: #C70039;
+	border-right-color:transparent;
+	border-left-color:transparent;
+	border-radius: 50%;
+	margin: auto;
+	
+}
+
+.spinner {
+	margin-top: 60%;
+}
+.spinner-inside{
+	width:60px;
+	height: 60px;
+	border : solid 6px;
+	border-color: #FF8000;
+	border-right-color:transparent;
+	border-left-color:transparent;
+	border-radius: 50%;
+	margin: auto;
+}
+.rotate-right{
+	margin-top: -21%;
+	margin-left: auto;
+	animation: SpinRight 1s linear infinite;
+}
+.rotate-left{
+	animation: SpinLeft 1s linear infinite;
+}
+.letterSpinner {
+    margin-top: -12%;
+    /* margin-left: -5px; */
+    position: relative;
+    font-family: Century Gothic;
+    font-size: x-large;
+    -webkit-text-stroke: 0.2px black;
+    text-shadow: 0.1em 0.1em 0.1em black;
+    color: black;
+    margin-left: 15%;
+}
+@keyframes SpinLeft{
+	from{
+		transform: rotate(360deg)
+	}
+	to{
+		transform: rotate(0deg);
+	}
+}
+@keyframes SpinRight{
+	from{
+		transform: rotate(0deg)
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
 /*----------------- Estilos responsive -------- */
 @media (min-width: 195px) and (max-width: 326px){
 	.header{
-		height: 120px;
+		height: 90px;
+	}
+
+	.icon-photo{
+		font-size: 30px;
 	}
 	.banner {
 		margin-top: 100px;
 	}
 
 	.bannerImg {
-		width: 60%;
-		height: 30%;
+		width: 55%;
 	}
 
 	.infoColumna {
@@ -501,6 +670,83 @@ a:hover {
 		max-width: 100%;
 		height: auto;
 		margin:0 auto;
+	}
+	.main .contenedor{
+		margin-top: 60px;
+	}
+	.atras{
+		margin-top: 70px;
+		width: 18%;
+	}
+	.login{
+		margin-top: 53%;
+	}
+
+	.login > p{
+		margin-left: 5%;
+	}
+
+	.nuevoP {
+		margin-top: 110px;
+	}
+
+	.nuevoP > h2{
+		font-size: x-large;
+
+	}
+
+	.listaPacientes > h2{
+		font-size: x-large;
+	}
+
+	.listaPacientes{
+		margin-bottom: 33%;
+	}
+
+	#cabeceraP {
+		font-size: large;
+	}
+
+	.registro {
+		margin-top: 140px;
+		width: 73%;
+	}
+
+	.registroM {
+		margin-top: 130px;
+		width: 73%;
+	}
+	.registro > p {
+		margin-left: 5%;
+	}
+
+	.registroActu > p {
+		margin-left: 10%;
+	}
+
+	.registroM > p {
+		margin-left: 10%;
+	}
+	.info{
+		margin-bottom: 35%; 
+	}
+	.letterSpinner{
+		margin-top: -14%;
+		font-size: large;
+	}
+
+	.spinner{
+		margin-top: 72%;
+	}
+
+	.rotate-right{
+		margin-top: -24%;
+	}
+
+	.nombreMedico > h4 {
+		font-size: medium;
+		margin-left: 23%;
+		margin-top: 35%;
 	}
 }
 
@@ -574,9 +820,10 @@ a:hover {
 		height: auto;
 		margin:0 auto;
 	}
+
 }
 
-@media(min-width: 768px) and (max-width: 1024px) {
+@media(min-width: 768px) and (max-width: 1023px) {
 	.icon-photo {
 		margin-top: 60px;
 		font-size: 40px;
@@ -602,7 +849,7 @@ a:hover {
 	}
 
 	.login{
-		margin-top: 120px;
+		margin-top: 204px;
 		width: 50%;
 	}
 
@@ -624,13 +871,74 @@ a:hover {
   		text-align: center;
 	}
 	.resultado {
-		max-width: 100%;
+		max-width: 90%;
 		height: auto;
 		margin:0 auto;
+		margin-top:23%;
 	}
+	.registro{
+		margin-top: 176px;
+	}
+	.registro > p{
+		margin-left: 29%;
+	}
+	.registroM{
+		width:68%;
+	}
+	.registroM >p {
+		margin-left: 29%;
+	}
+	.registroActu{
+		margin-top: 176px;
+	}
+	.registroActu > p{
+		margin-left: 29%;
+	}
+	.atras{
+		margin-top: 15%;
+	}
+	.nombreMedico > h4 {
+		margin-top: 19%
+	}
+	.listaPacientes{
+		margin-bottom: 11%;
+	}
+	.info{
+		margin-bottom: 10%;
+	}
+	.letterSpinner{
+		margin-top: -8%;
+		margin-left: 24%;
+		font-size: xx-large;
+
+	}
+
+	.spinner{
+		margin-top: 32%;
+	}
+
+	.rotate-right{
+		margin-top: -17%;
+	}
+	.spinner-inside{
+		width: 	100px;
+		height: 	100px;
+	}
+	.spinner-outside{
+		width: 	150px;
+		height: 	150px;
+	}
+
+	.nuevoP{
+		margin-top:140px;
+	}
+	.botones{
+		margin-bottom: 	0%;
+	}
+
 }
 
-@media(min-width: 1024px) and (max-width: 2048px) {
+@media(min-width: 1024px) and (max-width: 1439px) {
 	.icon-photo {
 		margin-top: 60px;
 		font-size: 40px;
@@ -678,9 +986,168 @@ a:hover {
 		height: auto;
 		margin:0 auto;
 	}
+	.atras{
+		margin-top: 10%;
+	}
+	.registroM{
+		width: 	66%;
+	}
+	.registroM > p{
+		margin-left: 40%;
+	}
+	.registro{
+		width: 	64%;
+
+		margin-top: 160px;
+	}
+	.registro > p{
+		margin-left: 40%;
+	}
+	.registroActu{
+		width: 	64%;
+		margin-top: 160px;
+	}
+	.registroActu > p{
+		margin-left: 40%;
+	}
+	.login{
+		margin-top: 200px;
+	}
+	.login >p{
+		margin-left: 32%;
+	}
+	.info{
+		margin-bottom: 0%;
+	}
+	.rotate-right{
+		margin-top: -8%;
+	}
+	.letterSpinner{
+		margin-top: -4%;
+		margin-left: 36%;
+	}
+	.spinner{
+		margin-top: 22%;
+	}
+	.nombreMedico >h4{
+		margin-top: 14%;
+	}
+	.listaPacientes{
+		margin-bottom: 	7%;
+	}
+	.nuevoP{
+		margin-top:150px;
+	}
+	.botones{
+		margin-bottom: 	8%;
+	}
 }
 
+@media(min-width: 1440px) and (max-width: 2048px) {
+	.icon-photo {
+		margin-top: 60px;
+		font-size: 40px;
+	}
 
+	.bannerImg{
+		width: 15%;
+		height: 50%;
+	}
+
+	.header {
+		height: 110px;
+	}
+
+	.banner {
+		margin-top: 110px;
+	}
+
+	.infoColumna{
+		display: inline-block;
+		width: 35%;
+	}
+
+	.main .contenedor {
+		margin-top: 130px;
+		width: 100%;
+		margin-left: auto;
+  		margin-right: auto;
+	}
+
+	.login{
+		margin-top: 130px;
+		width: 50%;
+	}
+
+	.image-take {
+		margin-right: 60px;
+	}
+
+	.image-upload {
+		margin-left: 60px;
+	}
+	.resultado {
+		max-width: 100%;
+		height: auto;
+		margin:0 auto;
+	}
+	.atras{
+		margin-top: 7%;
+	}
+	.registro{
+		margin-top:11%;
+		width: 60%;
+	}
+	.registro > p{
+		margin-left:40%;
+	}
+	.registroM{
+		width: 	66%;
+	}
+	.registroM > p{
+		margin-left: 40%;
+	}
+	.registroActu{
+		margin-top:11%;
+		width: 60%;
+	}
+	.registroActu > p{
+		margin-left:40%;
+	}
+	.login{
+		margin-top: 200px;
+	}
+	.login >p{
+		margin-left: 32%;
+	}
+	.info{
+		margin-bottom: 0%;
+	}
+	.rotate-right{
+		margin-top: -6%;
+	}
+	.letterSpinner{
+		margin-top: -3%;
+		margin-left: 40%;
+	}
+	.spinner{
+		margin-top: 22%;
+	}
+	.listaPacientes{
+		margin-bottom: 7%;
+	}
+	.nombreMedico >h4{
+		margin-top: 10%;
+	}
+	.image-take {
+	    margin-right: 60px;
+	    width: 66%;
+	    margin-left: 22%;
+	}
+	.botones{
+		margin-bottom: 	5%;
+	}
+}
 @media (min-width: 2048px){
 	.icon-photo {
 		margin-top: 80px;
@@ -727,4 +1194,5 @@ a:hover {
 		height: auto;
 		margin:0 auto;
 	}
+
 }

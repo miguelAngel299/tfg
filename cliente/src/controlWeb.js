@@ -19,9 +19,17 @@ function ControlWeb($){
 	        document.getElementById("myMain").appendChild(cw.seleccion);
 	        //document.getElementById('entrar').click();
 	}
+	this.spinner = function(msg){
+		document.getElementById("contenedorPrincipal").style.display = "none";
+		var cadena = '<div id="spinner" class="spinner"><div class="spinner-outside rotate-left"></div>';
+		cadena+='<div class="spinner-inside rotate-right"></div>';
+		cadena+='<h4 class="letterSpinner">'+msg+'</h4></div>'
+		$('#mySpinner').append(cadena);
+	}
 	this.primerMenu=function(){
 		//funcion_primera();
-		$('#contenedorMenuPrincipal2').remove();
+		//$('#contenedorMenuPrincipal2').remove();
+		this.limpiar();
 		var primero = '<div class="contenedor" id="contenedorMenuPrincipal2">';
         primero+='<section class="info" id="main">';
           primero+='<article class="infoColumna">';
@@ -89,13 +97,13 @@ function ControlWeb($){
 					menu += '<article class="infoColumna">';
 						menu += '<form id="subir2">';
 							menu += '<div class="image-take">';
-								menu += '<label for="btnSelect"><img src="cliente/img/select.gif" alt ="Click aquí para seleccionar una foto" title ="Click aquí para seleccionar una foto"></label>';
+								menu += '<label for="btnSelect"><img src="cliente/img/select.png" alt ="Click aquí para seleccionar una foto" title ="Click aquí para seleccionar una foto"></label>';
 								menu += '<input id="btnSelect" name="select" type="file"/ accept="image/*">';
                 				menu += '<h2 class="infoTitulo">Click en la imagen para seleccionar una foto</h2>';
 							menu += '</div>';
 						menu += '</form>';
 					menu += '</article>';
-					menu += '<article class="infoColumna">';
+					menu += '<article class="infoColumna" style="display:none">';
             			menu += '<div class="image-upload">';
 							menu += '<label for="btnUpload"><img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto"></label>';
 							menu += '<input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();"/>';
@@ -108,7 +116,18 @@ function ControlWeb($){
 		$('#menuFoto').append(menu);
 
 		$('#atrasBtn').click(function(){
+	        
 	    	cliR.mostrarAngulos();
+	    });
+
+	    $('#btnSelect').on('change',function(){
+	        cw.spinner("Procesando imagen...");
+	    	cliR.enviarFoto();
+	    });
+
+	    $('#file-input').on('change',function(){
+	        cw.spinner("Procesando imagen...");
+	    	cliR.enviarFoto();
 	    });
 	}
 
@@ -173,8 +192,6 @@ function ControlWeb($){
 	        	var nombre=$('#email').val();
 	        	var clave=$('#clave').val();
 	        	//$('#nombre').remove();
-	        	$('#login').remove();
-	        	$('#nombreBtn').remove();  
 	        	cw.logeado=true; 
 	        	cliR.loginUsuario(nombre,clave);
 	      	});
@@ -203,7 +220,7 @@ function ControlWeb($){
 		    cadena += '<div class="nombreMedico"><h4 >'+cw.nombrePaciente()+'</h4></div>';
 			cadena += '<h2 id="altaP">Nueva Foto</h2>';
 				cadena += '<div class="image-nuevo">';
-					cadena += '<label for="btnNuevaF"><img src="cliente/img/nuevoP.png" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una nueva foto"></label>';
+					cadena += '<label for="btnNuevaF"><img src="cliente/img/nuevaF.png" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una nueva foto"></label>';
 					cadena += '<input id="btnNuevaF" name="nuevaF" type="button" style="display: none;" onclick="onFoto();"/>';
 		cadena += '</div></div>';
 
@@ -264,7 +281,7 @@ function ControlWeb($){
 	}
 
 	this.botonesAngulo=function(){
-		var cadena = '<div id="botonesAng" class="botones">';
+		var cadena = '<div id="botonesAng" class="botonesP">';
 		cadena+= '<div class="btnPaciente"><label for="btnDeleteAngulo">';
 		cadena += '<h1 class="icon-delete" alt ="Click aquí para eliminar el angulo" title ="Click aquí para eliminar el angulo"></h1></label>';
 		cadena+='<input id="btnDeleteAngulo" type="button" class="btnFinal" value="delete"></div></div>';
@@ -382,7 +399,7 @@ function ControlWeb($){
 		//cw.comprobarBackdrop();
 		console.log(data);
 		this.limpiar();
-		var cadena = '<div id="actualizarPaciente" class="registro">';
+		var cadena = '<div id="actualizarPaciente" class="registroActu">';
 		cadena+='<div id="atras" class="atras">';
 			cadena+='<div class="btnAtras" style="margin-right: 30%;">';
 		        cadena+='<label for="atrasBtn">';
@@ -410,7 +427,7 @@ function ControlWeb($){
 				cadena += '<input id="nTlf" type="text" class="form-control" name="nTlf" placeholder="'+data.tlf+'"  value="'+data.tlf+'" required>';
 			cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
-    			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md">Actualizar</button>';
+    			cadena += '<button type="button" id="btnActu" class="btn btn-primary btn-md" style="margin-right:25%">Actualizar</button>';
     			cadena += '<button type="button" id="btnCancel" class="btn btn-primary btn-md" style=" background-color:grey; border-color:black;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
@@ -578,7 +595,7 @@ function ControlWeb($){
 	}
 
 	this.botonesPaciente=function(){
-		var cadena = '<div id="botonesP" class="botones"><div class="btnPaciente"><label for="btnFotoPaciente">';
+		var cadena = '<div id="botonesP" class="botonesP"><div class="btnPaciente"><label for="btnFotoPaciente">';
 		cadena += '<h1 class="icon-cam" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una foto"></h1></label>';
 		cadena += '<input id="btnFotoPaciente" type="button" class="btnFinal" value="menuPacientes"></div>';
 		cadena += '</hr>';
@@ -598,7 +615,7 @@ function ControlWeb($){
 		this.limpiar();
 		cliR.eliminarCookies();
 
-		var cadena = '<div id="registro" class="registro">';
+		var cadena = '<div id="registro" class="registroM">';
 			cadena+='<div id="atras" class="atras">';
 		  	cadena+='<div class="btnAtras" style="margin-right: 30%;">';
 		        cadena+='<label for="atrasBtn">';
@@ -638,8 +655,8 @@ function ControlWeb($){
             	cadena += '<input id="clave2" type="password" class="form-control" name="password" placeholder="Repite la clave">';
     		cadena += '</div>';
     		cadena += '<p id="btnRegistro" style="text-align: center;">';
-    			cadena += '<button type="button" id="nombreBtn" class="btn btn-primary btn-md">Registrarse</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-top:2%">Cancelar</button>';
+    			cadena += '<button type="button" id="nombreBtn" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
 
@@ -754,8 +771,8 @@ function ControlWeb($){
 				cadena += '<input id="nTlf" type="text" class="form-control" name="nTlf" placeholder="Numero de telefono" required>';
 			cadena += '</div>';
     		cadena += '<p style="text-align: center;">';
-    			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md">Registrarse</button>';
-	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey; margin-top:2% ">Cancelar</button>';
+    			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:20%">Registrarse</button>';
+	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
 
@@ -792,6 +809,8 @@ function ControlWeb($){
 	}
 	
 	this.ponerResultado=function(angulo){
+		document.getElementById("contenedorPrincipal").style.display = "";
+		$('#spinner').remove();
 		principal = document.getElementById('main');
 		$('#main').remove();
 		this.mover(angulo);
@@ -801,8 +820,9 @@ function ControlWeb($){
 
 	this.mover=function(angulo){
 		var canv1 = document.getElementsByTagName('canvas')[1];
-		if(canv1)
+		if(canv1){
 			canv1.remove();
+		}
         var canv = document.getElementsByTagName('canvas')[0];
         document.getElementById("canvasPosition").appendChild(canv);
         yo.ponerAngulo(angulo);
@@ -845,7 +865,7 @@ function ControlWeb($){
 		cadena += '<h1 class="icon-download-alt" alt ="Click aquí para subir tu foto" title ="Click aquí para descargar la foto"></h1></label>';
 		cadena += '<input id="btnDescargar" type="button" class="btnFinal" value="Descargar" onClick="descargar()"></div>';
 		cadena += '</hr>';
-		cadena+= '<div class="image-return" style="margin-right: 10%;"><label for="btnFinal">';
+		cadena+= '<div class="image-return" style="margin-right: 10%; display:none"><label for="btnFinal">';
 		cadena += '<h1 class="icon-undo" alt ="Click aquí para volver al menú" title ="Click aquí para volver al menú"></h1></label>';
 		cadena+='<input id="btnFinal" type="button" class="btnFinal" value="Volver Menú" onClick="volver()"></div>';
 		cadena+= '<div class="image-return"><label for="btnStorage">';
@@ -874,6 +894,8 @@ function ControlWeb($){
 
 	this.limpiar=function(){
 		//cliR.guardarMenu(document.getElementById('contenedorMenuPrincipal'));
+		$('#defaultCanvas0').remove();
+		$('#modalGeneral').remove();
 		$('#contenedorMenuPrincipal2').remove();
 	  	$('#btnFoto').remove();
 	  	$('#menuP').remove();
@@ -887,6 +909,6 @@ function ControlWeb($){
         $('#registroPaciente').remove();
         $('#contenedorPrincipal').remove();
         $('#atras').remove();
-
+		$('#spinner').remove();
 	}
 }

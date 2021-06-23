@@ -9,6 +9,7 @@ function ClienteWS(){
 		this.socket=io.connect(/*Se puede definir una URL*/);
 		this.lanzarSocketSrv();
 		cw.primerMenu();
+		//cw.spinner('Procesando imagen...');
 	}
 
 	this.obtenerCodigo=function(){

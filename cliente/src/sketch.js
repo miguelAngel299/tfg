@@ -10,7 +10,7 @@ function preload(){
 }
 
 function setup() {
-
+  $("#defaultCanvas0").remove();
 }
 
 function mostrar(){
@@ -32,7 +32,6 @@ function dibujar() {
   pixelDensity(1); // preventing p5 from automatically switching to 2x resolution for retina screens
   canv = createCanvas(img.width, img.height);
   canv.id("myCanvas");
-
   img.resize(/*width,height*/0,0);
   //canv.canvas.hidden=true;
   pg = createGraphics(img.width, img.height);

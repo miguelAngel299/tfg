@@ -9,7 +9,7 @@ function ClienteRest(){
           url: '/upload',
           data: formData,
           success: function (data) {
-            console.log(data);
+          	console.log(data);
           },
           contentType: false,
           processData:false
@@ -108,7 +108,7 @@ function ClienteRest(){
           else{
           	//modal 
           	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "#39DF1E");
-          	$.cookie("usr",JSON.stringify(data));
+          	//$.cookie("usr",JSON.stringify(data));
           	var uid = clir.obtenerUidPaciente();
           	$.getJSON("/obtenerListaAngulos/"+uid,function(data){           
 	        	cw.menuAngulo(data);
@@ -197,6 +197,11 @@ function ClienteRest(){
 	    contentType:'application/json',
 	    dataType:'json'
 	  });
+  	}
+
+  	this.enviarFoto=function(){
+  		//cw.mostrarModal("Subiendo Foto","La foto se ha seleccionado con exito", "white");
+  		onUpload();
   	}
 
   	this.close=function(){
@@ -295,6 +300,7 @@ function ClienteRest(){
 	    success:function(data){
 	      if (data.email==""){
 	        //mostrarLogin();
+	        cw.mostrarModal("Advertencia!", "Usuario o contraseña incorrecta", "yellow");
 	        console.log("Medico no existe")
 	      }
 	      else{
