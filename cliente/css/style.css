@@ -2,12 +2,231 @@
 * {
 	box-sizing: border-box;
 }
-
+/*
 img {
 	display: block;
 	max-width: 100%;
 }
+*/
+.imgBtn{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;   
+    transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+}       
+.imgBtn:hover{
+    transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.imgBtn:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
 
+.icon-cam{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-cam:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-cam:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+
+.icon-edit{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-edit:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-edit:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+
+.icon-delete{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-delete:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-delete:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+
+.icon-download-alt{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-download-alt:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-download-alt:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+
+.icon-undo{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-undo:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-undo:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+
+.icon-logout{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-logout:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-logout:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+
+.icon-save{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-save:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+.icon-save:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
+.icon-back{
+	transform:scale(1);
+    -ms-transform:scale(1); // IE 9 
+    -moz-transform:scale(1); // Firefox 
+    -webkit-transform:scale(1); // Safari and Chrome 
+    -o-transform:scale(1); // Opera 
+    -webkit-transition: all 600ms ease-in-out; // IE 9
+    -moz-transition: all 600ms ease-in-out; // Firefox
+    -ms-transition: all 600ms ease-in-out; // Safari and Chrome 
+    -o-transition: all 600ms ease-in-out; // Opera       
+} 
+.icon-back:hover {
+	transform:scale(0.85);
+    -ms-transform:scale(0.85); // IE 9 
+    -moz-transform:scale(0.85); // Firefox 
+    -webkit-transform:scale(0.85); // Safari and Chrome 
+    -o-transform:scale(0.85); // Opera
+}
+
+.atras:active{
+	color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px 16px rgba(49, 138, 172, 1);
+    transition: all 0.4s ease;
+}
 
 body {
 	width: 100%;
@@ -41,6 +260,12 @@ h1, h2 h3, h4, h5, h6 {
     }
 }
 
+.btnInicio:hover{
+  color: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+  transition: all 0.2s ease;
+}
+
 /*
 a {
 	outline: none;
@@ -72,12 +297,13 @@ a:hover {
 }
 
 .nombreMedico > h4 {
-    position: fixed;
+    position: absolute;
     margin-left: 25%;
+    font-size: large;
     top: 0;
     color: black;
     margin-top: 25%;
-    text-shadow: 0 0 black;
+    text-shadow: 1px 1px 10px wheat;
     font-weight: bolder;
 }
 
@@ -176,6 +402,12 @@ a:hover {
 	text-align: center;
 }
 
+.nuevoP > h2 {
+    font-size: x-large;
+    /* text-decoration: underline; */
+    text-shadow: 1px 1px 1px black;
+}
+
 .listaPacientes {
     margin-right: auto;
     margin-left: 10%;
@@ -192,6 +424,12 @@ a:hover {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+}
+
+#angulo {
+	font-size: x-large;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px wheat;
 }
 
 .registro > p{
@@ -299,7 +537,7 @@ tr td:first-child {
    font-size:1.3em;
 }
 tbody td {
-   display: block;
+   display: contents;
    text-align:center;
 }
 tbody td:before {
@@ -308,14 +546,24 @@ tbody td:before {
    text-align:center;
 }
 
+.icon-back {
+	color: seashell;
+}
+
+.icon-photo {
+	color: wheat;
+}
+
 .image-take > input{
     display: none;
 }
-.image-take img{
-	width: 100%;
-	box-shadow: 2px 2px 3px #333;
-	margin-left: auto;
-  	margin-right: auto;
+.image-take img {
+    width: 100%;
+    box-shadow: 2px 2px 3px 1.5px #333;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+    border-radius: 25%;
 }
 
 .image-upload > input{
@@ -365,6 +613,10 @@ tbody td:before {
     box-shadow: 1px 1px 3px #333;
 }
 .btn-primary{
+}
+
+tr {
+    border: solid lightgray;
 }
 
 .registroM > p {
@@ -422,7 +674,7 @@ tbody td:before {
 }
 
 .image-download h1{
-	box-shadow: 2px 2px 3px #333;
+	box-shadow: 2px 2px 3px 1.5px #333;
 }
 
 .image-return > input{
@@ -430,7 +682,7 @@ tbody td:before {
 }
 
 .image-return h1{
-	box-shadow: 2px 2px 3px #333;
+	box-shadow: 2px 2px 3px 1.5px #333;
 }
 
 .infoTitulo {
@@ -446,21 +698,23 @@ tbody td:before {
 }
 
 .btnPaciente h1 {
-	box-shadow: 2px 2px 3px #333;	
+    box-shadow: 2px 2px 3px 1.5px #333;
 }
 
 .image-nuevo > input{
     display: none;
 }
-.image-nuevo img{
-	width: 20%;
-	box-shadow: 2px 2px 3px #333;
-	margin-left: auto;
-  	margin-right: auto;
-    /*padding-left: 5vw;
-    padding-right: 5vw;
-    width: 80vh 80vw;
-    cursor: pointer;*/
+.image-nuevo img {
+    width: 20%;
+    box-shadow: 0px 0px 10px 2px wheat;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue; /*#cff8ffc2;*/
+    /* padding-right: 5vw; */
+    width: 20%;
+    cursor: pointer;
+    border-radius: 50%;
+    /* border-color: #f00; */
 }
 
 .li-jugadores{
@@ -541,7 +795,6 @@ a:hover {
 	max-width: 100%;
 	height: auto;
 	margin:0 auto;
-	overflow-x: scroll;
 }
 /*
 .modal-contenido{
@@ -626,13 +879,10 @@ a:hover {
 .letterSpinner {
     margin-top: -12%;
     /* margin-left: -5px; */
-    position: relative;
-    font-family: 'Lato', sans-serif;
-    font-size: x-large;
-    -webkit-text-stroke: 0.2px black;
-    text-shadow: 0.1em 0.1em 0.1em black;
-    color: black;
-    margin-left: 15%;
+    font-size: large;
+    margin-left: auto;
+    text-align: center;
+    font-weight: bold;
 }
 @keyframes SpinLeft{
 	from{
@@ -737,7 +987,6 @@ a:hover {
 		margin-bottom: 35%; 
 	}
 	.letterSpinner{
-		margin-top: -14%;
 		font-size: large;
 	}
 
@@ -746,7 +995,7 @@ a:hover {
 	}
 
 	.rotate-right{
-		margin-top: -24%;
+		margin-top: -25%;
 	}
 
 	.nombreMedico > h4 {
@@ -756,7 +1005,7 @@ a:hover {
 	}
 }
 
-@media (min-width: 326px) and (max-width: 480px){
+@media (min-width: 326px) and (max-width: 424px){
 	.icon-photo {
 		font-size: 30px;
 	}
@@ -782,7 +1031,7 @@ a:hover {
 	}
 
 	.login > p{
-		margin-left: 5%;
+		margin-left: 14%;
 	}
 
 	.nuevoP {
@@ -817,21 +1066,20 @@ a:hover {
 		margin-bottom: 25%;
 	}
 	.registro > p {
-		margin-left: 5%;
+		margin-left: 16%;
 	}
 
 	.registroActu > p {
-		margin-left: 10%;
+		margin-left: 13%;
 	}
 
 	.registroM > p {
-		margin-left: 10%;
+		margin-left: 18%;
 	}
 	.info{
 		margin-bottom: 35%; 
 	}
 	.letterSpinner{
-		margin-top: -14%;
 		font-size: large;
 	}
 
@@ -840,7 +1088,100 @@ a:hover {
 	}
 
 	.rotate-right{
-		margin-top: -21%;
+		margin-top: -19%;
+	}
+
+	.nombreMedico > h4 {
+		font-size: medium;
+		margin-left: 23%;
+		margin-top: 28%;
+	}
+}
+
+@media (min-width: 425px) and (max-width: 479px){
+	.icon-photo {
+		font-size: 30px;
+	}
+	.banner {
+		height: 90px;
+	}
+	.resultado {
+		max-width: 100%;
+		height: auto;
+		margin:0 auto;
+	}
+
+	.main .contenedor {
+		margin-bottom: 20%;
+	}
+
+	.atras{
+		margin-top: 70px;
+		width: 18%;
+	}
+	.login{
+		margin-top: 40%;
+	}
+
+	.login > p{
+		margin-left: 14%;
+	}
+
+	.nuevoP {
+		margin-top: 110px;
+	}
+
+	.nuevoP > h2{
+		font-size: x-large;
+
+	}
+
+	.listaPacientes > h2{
+		font-size: x-large;
+	}
+
+	.listaPacientes{
+		margin-bottom: 33%;
+	}
+
+	#cabeceraP {
+		font-size: large;
+	}
+
+	.registro {
+		margin-top: 140px;
+		width: 73%;
+	}
+
+	.registroM {
+		margin-top: 130px;
+		width: 73%;
+		margin-bottom: 25%;
+	}
+	.registro > p {
+		margin-left: 16%;
+	}
+
+	.registroActu > p {
+		margin-left: 13%;
+	}
+
+	.registroM > p {
+		margin-left: 18%;
+	}
+	.info{
+		margin-bottom: 35%; 
+	}
+	.letterSpinner{
+		font-size: large;
+	}
+
+	.spinner{
+		margin-top: 60%;
+	}
+
+	.rotate-right{
+		margin-top: -19%;
 	}
 
 	.nombreMedico > h4 {
@@ -869,7 +1210,7 @@ a:hover {
 	.infoTitulo{
 		font-size: 27px;
 		margin: 5px 0;
-		display: flex;
+		/*display: flex;*/
 	}
 
 	.main .contenedor {
@@ -882,6 +1223,10 @@ a:hover {
 	.login{
 		margin-top: 120px;
 		width: 50%;
+	}
+
+	.login > p{
+		margin-left: 18%;
 	}
 
 	.bannerImg{
@@ -917,7 +1262,7 @@ a:hover {
 
 	.infoColumna{
 		display: inline-block;
-		width: 35%;
+		width: 43%;
 	}
 	.header {
 		height: 120px;
@@ -972,7 +1317,7 @@ a:hover {
 		width:68%;
 	}
 	.registroM >p {
-		margin-left: 29%;
+		margin-left: 31%;
 	}
 	.registroActu{
 		margin-top: 176px;
@@ -994,7 +1339,6 @@ a:hover {
 	}
 	.letterSpinner{
 		margin-top: -8%;
-		margin-left: 24%;
 		font-size: xx-large;
 
 	}
@@ -1031,8 +1375,8 @@ a:hover {
 	}
 
 	.bannerImg{
-		width: 15%;
-		height: 50%;
+		width: 25%;
+    	height: 50%
 	}
 
 	.header {
@@ -1087,7 +1431,7 @@ a:hover {
 		margin-top: 160px;
 	}
 	.registro > p{
-		margin-left: 40%;
+		margin-left: 35%;
 	}
 	.registroActu{
 		width: 	64%;
@@ -1100,7 +1444,7 @@ a:hover {
 		margin-top: 200px;
 	}
 	.login >p{
-		margin-left: 32%;
+		margin-left: 29%;
 	}
 	.info{
 		margin-bottom: 0%;
@@ -1110,7 +1454,6 @@ a:hover {
 	}
 	.letterSpinner{
 		margin-top: -4%;
-		margin-left: 36%;
 	}
 	.spinner{
 		margin-top: 22%;
@@ -1127,9 +1470,14 @@ a:hover {
 	.botones{
 		margin-bottom: 	8%;
 	}
+	.btnSalir {
+    	margin-left: auto;
+    	margin-right: 2%;
+    	margin-top: 1%;
+	}
 }
 
-@media(min-width: 1440px) and (max-width: 2048px) {
+@media(min-width: 1440px) and (max-width: 2047px) {
 	.icon-photo {
 		margin-top: 60px;
 		font-size: 40px;
@@ -1210,11 +1558,10 @@ a:hover {
 		margin-bottom: 0%;
 	}
 	.rotate-right{
-		margin-top: -6%;
+		margin-top: -80px;
 	}
 	.letterSpinner{
 		margin-top: -3%;
-		margin-left: 40%;
 	}
 	.spinner{
 		margin-top: 22%;
@@ -1224,6 +1571,7 @@ a:hover {
 	}
 	.nombreMedico >h4{
 		margin-top: 10%;
+		margin-left: 18%;
 	}
 	.image-take {
 	    margin-right: 60px;
@@ -1233,12 +1581,37 @@ a:hover {
 	.botones{
 		margin-bottom: 	5%;
 	}
+	.btnSalir{
+		margin-top: 1%;
+    	margin-right: 2%;
+	}
+
+	.tableListaP > tbody td {
+    	display: inline-table;
+    	margin-left: auto;
+    	margin-right: auto;
+    	width: 25%;
+	}
+	.tableListaA > tbody td {
+    	display: inline-table;
+    	text-align: center;
+    	width: 33%;
+	}
+
+
+	.bannerImg {
+	    width: 21%;
+	    /* height: 50%; */
+	}
 }
-@media (min-width: 2048px){
+@media (min-width: 2048px) and (max-width: 2560px){
 	.icon-photo {
 		margin-top: 80px;
 		font-size: 50px;
 		text-align: center;
+	}
+	.infoTitulo {
+	    font-size: xxx-large;
 	}
 
 	.header {
@@ -1257,9 +1630,21 @@ a:hover {
 		margin-left: auto;
 	}
 
-	.login{
-		margin-top: 160px;
-		width: 50%;
+	.login {
+	    margin-top: 14%;
+	    width: 50%;
+	}
+
+	.login > p {
+		margin-left: 39%;
+	}
+
+	.registroM {
+		margin-top: 12%;
+	}
+
+	.registroM > p {
+		margin-left: 43%;
 	}
 
 	.infoColumna{
@@ -1281,4 +1666,75 @@ a:hover {
 		margin:0 auto;
 	}
 
+	.atras {
+	    margin-top: 6%;
+	    text-align-last: end;
+	    margin-bottom: 0;
+	    width: 7%;
+	    background: #C7C7C7;
+	    color: #fff;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    z-index: 99;
+	    box-shadow: 1px 1px 3px #333;
+	}
+
+	.nombreMedico > h4 {
+	    position: absolute;
+	    margin-left: 12%;
+	    font-size: xx-large;
+	    top: 0;
+	    color: black;
+	    margin-top: 7%;
+	    text-shadow: 1px 1px 10px wheat;
+	    font-weight: bolder;
+	}
+
+	.nuevoP {
+	    margin-top: 8%;
+	    text-align: center;
+	}
+
+	.tableListaP > tbody td {
+    	display: inline-table;
+    	margin-left: auto;
+    	margin-right: auto;
+    	width: 25%;
+	}
+	.tableListaA > tbody td {
+    	display: inline-table;
+    	text-align: center;
+    	width: 33%;
+	}
+
+	.nuevoP > h2 {
+	    font-size: xx-large;
+	    /* text-decoration: underline; */
+	    text-shadow: 1px 1px 1px black;
+	}
+	.registro {
+		margin-top: 13%;
+	}
+
+	.registro > p {
+		margin-left: 42%;
+	}
+
+	#cabeceraP {
+	    font-size: xx-large;
+	}
+
+	.registroActu {
+	    margin-top: 12%;
+	}
+
+	.registroActu > p{
+		margin-left: 42%;
+	}
+
+	.btnSalir{
+		margin-top: 1%;
+    	margin-right: 2%;
+	}
 }

@@ -35,7 +35,7 @@ function ControlWeb($){
           primero+='<article class="infoColumna">';
               primero+='<div class="image-take">';
                 primero+='<label for="btnRegistro">';
-                    primero+='<img src="cliente/img/registro.png" alt ="Click aquí para registrarte" title ="Click aquí para registrarte"> ';
+                    primero+='<img class="imgBtn" src="cliente/img/registro.png" alt ="Click aquí para registrarte" title ="Click aquí para registrarte"> ';
                 primero+='</label>';
                 primero+='<input id="btnRegistro" name="registro" type="button" style="display: none;">';
                 primero+='<h2 class="infoTitulo">Registrarse</h2>';
@@ -44,7 +44,7 @@ function ControlWeb($){
           primero+='<article class="infoColumna">';
               primero+='<div class="image-take">';
                 primero+='<label for="btnInicio">';
-                    primero+='<img src="cliente/img/login.png" alt ="Click aquí para iniciar sesión" title ="Click aquí para iniciar sesión">';
+                    primero+='<img class="imgBtn" src="cliente/img/login.png" alt ="Click aquí para iniciar sesión" title ="Click aquí para iniciar sesión">';
                 primero+='</label>';
                 primero+='<input id="btnInicio" name="inicio" type="button" style="display: none;">';
                 primero+='<h2 class="infoTitulo">Iniciar Sesión</h2>';
@@ -88,7 +88,7 @@ function ControlWeb($){
 					menu += '<article class="infoColumna">';
 						menu += '<form id="subir">';
 							menu += '<div class="image-take">';
-								menu += '<label for="file-input"><img src="cliente/img/camara.png" alt ="Click aquí para hacer tu foto" title ="Click aquí para tomar tu foto"></label>';
+								menu += '<label for="file-input"><img class="imgBtn" src="cliente/img/camara.png" alt ="Click aquí para hacer tu foto" title ="Click aquí para tomar tu foto"></label>';
 								menu += '<input id="file-input" name="foto" type="file"/ accept="image/*" capture="camera">';
 								menu += '<h2 class="infoTitulo">Click en la imagen para tomar foto</h2>';
 							menu += '</div>';
@@ -97,7 +97,7 @@ function ControlWeb($){
 					menu += '<article class="infoColumna">';
 						menu += '<form id="subir2">';
 							menu += '<div class="image-take">';
-								menu += '<label for="btnSelect"><img src="cliente/img/select.png" alt ="Click aquí para seleccionar una foto" title ="Click aquí para seleccionar una foto"></label>';
+								menu += '<label for="btnSelect"><img class="imgBtn" src="cliente/img/select.png" alt ="Click aquí para seleccionar una foto" title ="Click aquí para seleccionar una foto"></label>';
 								menu += '<input id="btnSelect" name="select" type="file"/ accept="image/*">';
                 				menu += '<h2 class="infoTitulo">Click en la imagen para seleccionar una foto</h2>';
 							menu += '</div>';
@@ -105,7 +105,7 @@ function ControlWeb($){
 					menu += '</article>';
 					menu += '<article class="infoColumna" style="display:none">';
             			menu += '<div class="image-upload">';
-							menu += '<label for="btnUpload"><img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto"></label>';
+							menu += '<label for="btnUpload"><img class="imgBtn" src="cliente/img/select.png" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto"></label>';
 							menu += '<input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();"/>';
 							menu += '<h2 class="infoTitulo">Click en la imagen para subir foto</h2>';
 						menu += '</div>';
@@ -201,7 +201,7 @@ function ControlWeb($){
 	      	});
 	    }
 	    else
-	      	yo.mostrarModal("Advertencia!","Debe ser una dirección de email","white");
+	      	yo.mostrarModal("Advertencia!","Debe ser una dirección de email","#F6FF81");
 	  	});
 	}
 
@@ -220,7 +220,7 @@ function ControlWeb($){
 		    cadena += '<div class="nombreMedico"><h4 >'+cw.nombrePaciente()+'</h4></div>';
 			cadena += '<h2 id="altaP">Nueva Foto</h2>';
 				cadena += '<div class="image-nuevo">';
-					cadena += '<label for="btnNuevaF"><img src="cliente/img/nuevaF.png" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una nueva foto"></label>';
+					cadena += '<label for="btnNuevaF"><img class="imgBtn" src="cliente/img/nuevaF.png" alt ="Click aquí para tomar una foto" title ="Click aquí para tomar una nueva foto"></label>';
 					cadena += '<input id="btnNuevaF" name="nuevaF" type="button" style="display: none;" onclick="onFoto();"/>';
 		cadena += '</div></div>';
 
@@ -317,7 +317,7 @@ function ControlWeb($){
 		    cadena += '<div class="nombreMedico"><h4 >'+cw.nombreMedico()+'</h4></div>';
 			cadena += '<h2 id="altaP">Nuevo paciente</h2>';
 				cadena += '<div class="image-nuevo">';
-					cadena += '<label for="btnNuevo"><img src="cliente/img/nuevoP.png" alt ="Click aquí para crear un nuevo paciente" title ="Click aquí para crear un nuevo paciente"></label>';
+					cadena += '<label for="btnNuevo"><img class="imgBtn" src="cliente/img/nuevoP.png" alt ="Click aquí para crear un nuevo paciente" title ="Click aquí para crear un nuevo paciente"></label>';
 					cadena += '<input id="btnNuevo" name="nuevo" type="button" style="display: none;" onclick="onMenuPacientes();"/>';
 		cadena += '</div></div>';
 
@@ -329,8 +329,10 @@ function ControlWeb($){
 		
 		$('#menuPacientes').append(cadena);
 		$('#atrasBtn').click(function(){
-			cw.limpiar();
-	        document.getElementById("myMain").appendChild(sel);
+			//cw.limpiar();
+	        //document.getElementById("myMain").appendChild(sel);
+	        cw.toLogOut = true;
+          	funcion_primera();
 	    });
 		//StoreValue = [];
 	    $(".list-group a").click(function(){
@@ -375,10 +377,6 @@ function ControlWeb($){
 	          	cliR.confirmar(id, "delete");
 	          	//cw.dialogoConfirmacion("¿Esta seguro?","Asegurese de que desea eliminar el paciente", id);
 	          
-	    });
-
-	    $('#atrasBtn').click(function(){
-	    	cw.mostrarLogin();
 	    });
 	}
 
@@ -692,7 +690,7 @@ function ControlWeb($){
 		        		$('#btnRegistro').remove();   
 		        		cliR.registroMedico(nombre, apellido, email, clave1);
 			      	}else{
-			      		yo.mostrarModal("Warning!","Las contraseñas no coinciden", "#F6FF81");
+			      		yo.mostrarModal("Advertencia!","Las contraseñas no coinciden", "#F6FF81");
 			      	}
 		      	});
 		      	$('#refRecordar').on('click',function(){
@@ -701,7 +699,7 @@ function ControlWeb($){
 		      	});
 		    }
 	    else
-	      	yo.mostrarModal("Warning!","Email invalido", "#F6FF81");
+	      	yo.mostrarModal("Advertencia!","Email invalido", "#F6FF81");
 	  	});
 	}
 
@@ -897,7 +895,7 @@ function ControlWeb($){
 		//cliR.guardarMenu(document.getElementById('contenedorMenuPrincipal'));
 		if ($('.modal-backdrop').is(':visible'))
 			$('.modal-backdrop').remove(); 
-		
+
 		$('#defaultCanvas0').remove();
 		//$('#modalGeneral').remove();
 		$('#contenedorMenuPrincipal2').remove();

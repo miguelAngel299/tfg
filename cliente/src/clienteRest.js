@@ -48,7 +48,7 @@ function ClienteRest(){
           }
           else{
           	//modal 
-          	cw.mostrarModal("Bienvenido!!", "Se ha registrado con éxito", "#39DF1E");
+          	cw.mostrarModal("Bienvenido!!", "Se ha registrado con éxito", "white");
           	$.cookie("usr",JSON.stringify(data));
           	//Lo mando a login
           	var uid = clir.obtenerUid();
@@ -81,7 +81,7 @@ function ClienteRest(){
           }
           else{
           	//modal 
-          	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "#39DF1E");
+          	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "white");
           	$.cookie("usr",JSON.stringify(data));
           	var uid = clir.obtenerUid();
           	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
@@ -107,7 +107,7 @@ function ClienteRest(){
           }
           else{
           	//modal 
-          	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "#39DF1E");
+          	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "white");
           	//$.cookie("usr",JSON.stringify(data));
           	var uid = clir.obtenerUidPaciente();
           	$.getJSON("/obtenerListaAngulos/"+uid,function(data){           
@@ -168,7 +168,7 @@ function ClienteRest(){
 	        	cw.mostrarMenuP(data);
 	    	});
 	  	}else
-	    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","yellow");
+	    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","#F6FF81");
   	}
 
   	this.cookieUpdate=function(id){
@@ -236,13 +236,13 @@ function ClienteRest(){
 	    success:function(data){
 	      if (data.resultados==1)
 	      {
-	      		cw.mostrarModal("Paciente Eliminado!!", "Se ha eliminado el paciente", "#39DF1E");
+	      		cw.mostrarModal("Paciente Eliminado!!", "Se ha eliminado el paciente", "white");
 	        	var uid = clir.obtenerUid();
 		    	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
 		        	cw.mostrarMenuP(data);
 		    	});
 	  	  }else
-		    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","yellow");
+		    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","#F6FF81");
 		      
 	      },
 	    contentType:'application/json',
@@ -262,13 +262,13 @@ function ClienteRest(){
 	    success:function(data){
 	      if (data.resultados==1)
 	      {
-	      		cw.mostrarModal("Angulo Eliminado!!", "Se ha eliminado el paciente", "#39DF1E");
+	      		cw.mostrarModal("Angulo Eliminado!!", "Se ha eliminado el paciente", "white");
 	        	var uid = clir.obtenerUidPaciente();
 		    	$.getJSON("/obtenerListaAngulos/"+uid,function(data){           
 		        	cw.menuAngulo(data);
 		    	});
 	  	  }else
-		    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","yellow");
+		    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","#F6FF81");
 		      
 	      },
 	    contentType:'application/json',
@@ -289,7 +289,7 @@ function ClienteRest(){
 	        	cw.menuAngulo(data);
 	    	});
 	  	}else
-	    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","yellow");
+	    	cw.mostrarModal("Advertencia!","Debes iniciar sesión","#F6FF81");
   	}  	  	
 
 	this.loginUsuario=function(nombre,clave){
@@ -300,7 +300,7 @@ function ClienteRest(){
 	    success:function(data){
 	      if (data.email==""){
 	        //mostrarLogin();
-	        cw.mostrarModal("Advertencia!", "Usuario o contraseña incorrecta", "yellow");
+	        cw.mostrarModal("Advertencia!", "Usuario o contraseña incorrecta", "#F6FF81");
 	        console.log("Medico no existe")
 	      }
 	      else{
@@ -333,7 +333,7 @@ function ClienteRest(){
 	      		}
 	      		else{
 	      			//cw.comprobarBackdrop();
-	      			cw.mostrarModal("Paciente Actualizado!!", "Se ha actualizado el paciente", "#39DF1E");
+	      			cw.mostrarModal("Paciente Actualizado!!", "Se ha actualizado el paciente", "white");
 	        		var uid = clir.obtenerUid();
 			    	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
 			        	cw.mostrarMenuP(data);
