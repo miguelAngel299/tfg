@@ -6,12 +6,6 @@ var io = require('socket.io')(server);
 var formidable = require('formidable');
 var path = require('path');
 
-//var { fork } = require('child_process');
-//var spawn = require('child_process').spawn;
-//var forked = fork('./servidor/servicio.js');
-//const { exec } = require('child_process');
-
-//var traceSkeleton = require("./servidor/traceSkeleton.js");
 var wss = require("./servidor/servidorWS.js");
 var servicio = require("./servidor/servicio.js");
 var modelo = require("./servidor/modelo.js");
@@ -27,7 +21,6 @@ app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 5000);
 
-//app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname)); 
 app.use(function (req, res, next) {
 
@@ -38,7 +31,6 @@ app.use(function (req, res, next) {
     next(); 
 });
 
-//var trace = new traceSkeleton.TraceSkeleton();
 app.get('/', function (request, response) {
     var contenido = fs.readFileSync(__dirname + "/cliente/index.html"); 
     
@@ -83,9 +75,6 @@ app.post('/upload', function (req, res) {
 			            // save file from temp dir to new dir
 			            var fileName = path.join(__dirname, dir, files.foto.name); 
 			             
-			            // save file from temp dir to new dir 
-			            //var fileName = path.join(__dirname, dir, files.foto.name); 
-			            //console.log(fileName);
 			            fs.writeFile(fileName, data, function (err) { 
 			                if (err) 
 			                    throw err; 
@@ -107,9 +96,7 @@ app.post('/uploadFile', function (req, res) {
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) { 
         var dir = "\\cliente\\img\\subidas\\";
-        //var servicioJava = new servicio.Servicio();
         console.log(files);
-        //console.log(files.select.path);
         files=files.select;
 	   	try{
 			if (fs.lstatSync(dir).isDirectory()){
@@ -135,10 +122,6 @@ app.post('/uploadFile', function (req, res) {
 			        fs.readFile(files.path, function (err, data) { 
 			            // save file from temp dir to new dir
 			            var fileName = path.join(__dirname, dir, files.name); 
-			             
-			            // save file from temp dir to new dir 
-			            //var fileName = path.join(__dirname, dir, files.foto.name); 
-			            //console.log(fileName);
 			            fs.writeFile(fileName, data, function (err) { 
 			                if (err) 
 			                    throw err; 

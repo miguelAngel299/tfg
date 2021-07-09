@@ -1,6 +1,3 @@
-//var WIDTH = 1200;
-//var HEIGHT = 1200;
-
 var img;
 var canv;
 var pg;
@@ -20,28 +17,13 @@ function mostrar(){
 }
 
 function dibujar() {
-  /*
-  var width = Math.round(cw.getWidth());
-  var height;
-  if(img.width > img.height)
-    height=Math.round(width*0.4);
-  else
-    width=Math.round(width*0.4);
-  
-*/
-  pixelDensity(1); // preventing p5 from automatically switching to 2x resolution for retina screens
+  pixelDensity(1);
   canv = createCanvas(img.width, img.height);
   canv.id("myCanvas");
-  img.resize(/*width,height*/0,0);
-  //canv.canvas.hidden=true;
+  img.resize(0,0);
   pg = createGraphics(img.width, img.height);
   pg.background(0);
-  //REESCALAR --> MIRAR PG
-  pg.image(img,0,0,0,0/*img.resize(0,height), img.resize(width,0)*/);
-
-  //resize()
-  
-  //pg.image(img,0,0/*,img.width/2, img.height/2*/);
+  pg.image(img,0,0,0,0);
 
 
 
@@ -57,72 +39,9 @@ function dibujar() {
   // draw the polylines
   stroke(255,0,0);
   dibujarAngulo(polylines);
-  
-  /*for (var i = 0; i < polylines.length; i++){
-    for (var j = 1; j < polylines[i].length; j++){
-      console.log((polylines[i][j-1][0]+" - "+ //x
-          polylines[i][j-1][1]+" - "+ //y
-           polylines[i][j][0]+" - "+ //x1
-           polylines[i][j][1])) //y1
-    }
-  }*/
 }
 
 function dibujarAngulo(polylines){
-  /*
-  let menor = polylines[0][0];
-  let xm = 999;
-  let ym = -1;
-  for (var i = 0; i < polylines.length; i++){
-    for (var j = 0; j < polylines[i].length; j++){
-        if(xm > polylines[i][j][0])
-          xm = polylines[i][j][0];
-
-        if(ym < polylines[i][j][1]){
-          ym= polylines[i][j][1];
-          medio = polylines[i][j];
-        }
-
-  }}
-
-  xm = int((medio[0] + xm)/2);
-  pendiente1 = (ym - polylines[0][polylines[0].length-1][1])/(xm - polylines[0][polylines[0].length-1][0])
-  pendiente2 = (ym - polylines[0][0][1])/(xm - polylines[0][0][0])
-
-
-  m = (pendiente2-pendiente1)/(1+pendiente1*pendiente2);
-  radianes = Math.atan(m);
-  alpha = radianes * 180 / Math.PI;
-
-  ang = getAngulo(alpha);
-
-  console.log("p1:"+pendiente1)
-  console.log("p2:"+pendiente2)
-  console.log("m:"+m)
-  console.log("alpha:"+ang)
-  console.log(menor)*/
-  /*
-	line(polylines[0][0][0], //x
-   		polylines[0][0][1], //y
-        xm,
-        ym)
-    line(xm,
-         polylines[0][polylines[0].length-1][0], //x1
-             polylines[0][polylines[0].length-1][1])
-*/
-  //line(polylines[3][60][0],polylines[3][60][1],polylines[polylines.length-1][polylines[polylines.length-1].length-1][0], polylines[polylines.length-1][polylines[polylines.length-1].length-1][1]);
-//  line(polylines[4][0][0],polylines[4][0][1],polylines[4][35][0],polylines[4][35][1]);
-  //line(polylines[1][0][0],polylines[1][0][1],polylines[1][105][0],polylines[1][105][1]);
-/*
-for (var i = 0; i < polylines.length; i++){
-    for (var j = 1; j < polylines[i].length; j++){
-      console.log (i +" "+ j);
-      line(polylines[i][j-1][0],polylines[i][j-1][1],polylines[i][j][0],polylines[i][j][1])
-    }
-  }
-*/
-
-
 /*
    Primero obtener primer punto eso implica el primero puede ir hacia la derecha pero si no puede se pasa al siguiente que pueda.
 */
@@ -181,6 +100,7 @@ for (var i = 0; i < polylines.length; i++){
   console.log("p2:"+pendiente2)
   console.log("m:"+m)
   console.log("alpha:"+ang)
+
     //Medio real - MAXIMA Y
     //  line(polylines[0][0][0] //x
     //         ,polylines[0][0][1], //y
@@ -200,6 +120,5 @@ for (var i = 0; i < polylines.length; i++){
 function getAngulo(angulo){
   console.log("ANGULO ANTES "+angulo);
   var redond = Math.round(angulo * 10000)/10000;
-  //cw.guardarAng(redond);
   return redond;
 }

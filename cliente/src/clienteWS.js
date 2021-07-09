@@ -9,7 +9,6 @@ function ClienteWS(){
 		this.socket=io.connect(/*Se puede definir una URL*/);
 		this.lanzarSocketSrv();
 		cw.primerMenu();
-		//cw.spinner('Procesando imagen...');
 	}
 
 	this.obtenerCodigo=function(){
@@ -40,13 +39,7 @@ function ClienteWS(){
 		});
 
 		this.socket.on('avisar',function(){
-			//console.log(res);
-			//cli.obtenerImg();
-			//cliR.obtenerImg();
-			
-			//Quitar esperando imagen
 			mostrar();
-			//cli.angulo = getAngulo();
 		});	
 
 		this.socket.on('codigoObtenido', function(code){

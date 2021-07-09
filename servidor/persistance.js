@@ -78,20 +78,6 @@ function Cad(){
        eliminar(this.angulos,uid,callback);
     }
 
- //    /////Resultados
-
-    // this.insertarResultado=function(resu,callback){
- //        insertar(this.resultados,resu,callback);
- //    }
-
- //    this.obtenerResultados=function(callback){
- //     obtenerTodos(this.resultados,callback);
- //    }
-
- //    this.obtenerResultadosCriterio=function(criterio,callback){
- //     obtener(this.resultados,criterio,callback);
- //    }
-
     //// funciones genÃ©ricas
     function obtenerTodos(coleccion,callback){
         //console.log(coleccion)
@@ -147,7 +133,6 @@ function Cad(){
     }
  
     function modificarColeccion(coleccion,paciente,callback){
-        //coleccion.update({_id:paciente._id},{$set:paciente},{upsert:false},function(err,result){
         coleccion.updateOne({_id:paciente._id},{$set:paciente},{upsert:true},function(err,result){
             if(err)
                 console.log("No se pudo actualizar la colección (método genérico)");
@@ -212,9 +197,6 @@ function Cad(){
             }
         });
     }
-    // this.connect(function(db){
- //        this.dbase=db;
- //    });
 }
 
 module.exports.Cad=Cad;

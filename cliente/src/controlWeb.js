@@ -17,7 +17,6 @@ function ControlWeb($){
 	this.logOut=function(){
 	  		cw.limpiar();
 	        document.getElementById("myMain").appendChild(cw.seleccion);
-	        //document.getElementById('entrar').click();
 	}
 	this.spinner = function(msg){
 		document.getElementById("contenedorPrincipal").style.display = "none";
@@ -27,8 +26,6 @@ function ControlWeb($){
 		$('#mySpinner').append(cadena);
 	}
 	this.primerMenu=function(){
-		//funcion_primera();
-		//$('#contenedorMenuPrincipal2').remove();
 		this.limpiar();
 		var primero = '<div class="contenedor" id="contenedorMenuPrincipal2">';
         primero+='<section class="info" id="main">';
@@ -54,14 +51,10 @@ function ControlWeb($){
         $('#btnRegistro').click(function(){
         	console.log("LLEGA");
 	        cw.mostrarRegistroMedico();
-	        //document.getElementById('entrar').click();
-	        //if('#btnFotoPaciente').isClicked()
 	    });
 
 	    $('#btnInicio').click(function(){
 	        cw.mostrarLogin();
-	        //document.getElementById('entrar').click();
-	        //if('#btnFotoPaciente').isClicked()
 	    });
 
 	}
@@ -69,7 +62,7 @@ function ControlWeb($){
 	this.menuFoto=function(){
 		funcion_primera();
 		this.limpiar();
-		//$('#btnFoto').remove();
+
 		var menu = '<div class="contenedor" id="contenedorPrincipal">';
 		 menu +='<div id="atras" class="atras">';
 	  	menu+='<div class="btnAtras" style="margin-right: 30%;">';
@@ -136,12 +129,9 @@ function ControlWeb($){
 		if(document.getElementById('salir').style.display=="contents")document.getElementById('salir').style.display="none";
 		funcion_primera();
 		this.seleccion=document.getElementById("contenedorMenuPrincipal");
-		//cliR.guardarMenu(document.getElementById('contenedorMenuPrincipal'));
 		$('#login').remove();
 	  	this.limpiar();
 	  	cliR.eliminarCookies();
-	  	//$('#contenedorMenuPrincipal').remove();
-	  	//$('#btnFoto').remove();
 
 	  	var cadena='<div id="login" class="login">';
 	  	cadena+='<div id="atras" class="atras">';
@@ -166,22 +156,16 @@ function ControlWeb($){
 	  		cw.limpiar();
 	  		cw.primerMenu();
 	        document.getElementById("myMain").appendChild(cw.seleccion);
-	        //document.getElementById('entrar').click();
-	        //if('#btnFotoPaciente').isClicked()
 	    });
 
 	    $('#atrasBtn').click(function(){
-	    	//this.seleccion=document.getElementById("contenedorMenuPrincipal");
 	    	cw.limpiar();
-	        //document.getElementById("myMain").appendChild(cw.seleccion);
 	        yo.primerMenu();
 	    });
 
 	    $('#logOut').click(function(){
 	  	  cw.toLogOut = true;
           funcion_primera();
-          //document.getElementById('entrar').click();
-          //if('#btnFotoPaciente').isClicked()
       });
 
 	  	$('#email').blur(function() {
@@ -191,7 +175,6 @@ function ControlWeb($){
 	      	$('#nombreBtn').unbind("click").on('click',function(){
 	        	var nombre=$('#email').val();
 	        	var clave=$('#clave').val();
-	        	//$('#nombre').remove();
 	        	cw.logeado=true; 
 	        	cliR.loginUsuario(nombre,clave);
 	      	});
@@ -208,7 +191,7 @@ function ControlWeb($){
 	this.menuAngulo=function(lista){
 		funcion_primera();
 		this.limpiar();
-		//cliR.eliminarCookies();
+
 		var cadena = '<div id="menuAng" class="nuevoP">';
 		cadena+='<div id="atras" class="atras">';
 			cadena+='<div class="btnAtras" style="margin-right: 30%;">';
@@ -239,17 +222,12 @@ function ControlWeb($){
 	    $(".list-group a").click(function(){
 	        StoreValue = [];
 	        StoreValue.push($(this).attr("value"));
-	        //document.getElementById('entrar').click();
-	        //if('#btnFotoPaciente').isClicked()
 	    })
 		$('#btnDeleteAngulo').click(function(){
-	          id=StoreValue[0];//$("#lista").val();
+	          id=StoreValue[0];
 	          console.log(id);
-	          //var nick=$('#nick').val();
 	          if(id)
 	          	cliR.confirmar(id, "deleteAng");
-	          	//cw.dialogoConfirmacion("¿Esta seguro?","Asegurese de que desea eliminar el paciente", id);
-	          
 	    });
 	}
 
@@ -274,7 +252,6 @@ function ControlWeb($){
 	        cadena=cadena+'<a href="#" value="'+_id+'" class="list-group-item a-jugadores"><table class="tableListaA"><tr><td><span class="badge"><h4>'+fecha+'</h4></span></td><td><span class="badge"><h4>'+angulo+'</h4></span></td><td>'+this.botonesAngulo()+'</td></tr></table></a>';
 	    } 
 	    cadena=cadena+'</div>';
-	    //cadena=cadena+'</div>';
 	    cadena=cadena+'<input type="button" class="btn btn-primary center" id="entrar" value="Seleccionar" style="margin-bottom:5%; display:none;"></button>';
 	    cadena = cadena + '</div></div>';
 	    return cadena;
@@ -305,7 +282,7 @@ function ControlWeb($){
 		console.log(sel);
 		this.limpiar();
 		funcion_primera();
-		//$('#btnFoto').remove();
+
 		var cadena = '<div id="menuP" class="nuevoP">';
 		cadena+='<div id="atras" class="atras">';
 			cadena+='<div class="btnAtras" style="margin-right: 30%;">';
@@ -329,29 +306,22 @@ function ControlWeb($){
 		
 		$('#menuPacientes').append(cadena);
 		$('#atrasBtn').click(function(){
-			//cw.limpiar();
-	        //document.getElementById("myMain").appendChild(sel);
 	        cw.toLogOut = true;
           	funcion_primera();
 	    });
-		//StoreValue = [];
+
 	    $(".list-group a").click(function(){
 	        StoreValue = [];
 	        paciente = $(this);
 	        StoreValue.push($(this).attr("value"));
-	        //document.getElementById('entrar').click();
-	        //if('#btnFotoPaciente').isClicked()
 	    });
 
 	    $('#btnFotoPaciente').click(function(){
 	        
 	          id=StoreValue[0];//$("#lista").val();
 	          console.log(id);
-	          //var nick=$('#nick').val();
-
 	          if (id){
 	          	cliR.cookieUpdate(id);
-	            //cliR.mostrarAngulos();
 	          }
 	    });
 
@@ -359,12 +329,8 @@ function ControlWeb($){
 	    $('#btnEditPaciente').click(function(){
 	          id=StoreValue[0];//$("#lista").val();
 	          console.log(id);
-	          //var nick=$('#nick').val();
-
 	          if (id){
 	          	var obj = obtenerObj(lista.retorno,id);
-	          	//cliR.eliminarPaciente(id);
-	          	//console.log(lista);
 	           	cw.mostrarMenuActualizar(obj);
 	          }
 	    });
@@ -372,11 +338,8 @@ function ControlWeb($){
 	    $('#btnDeletePaciente').click(function(){
 	          id=StoreValue[0];//$("#lista").val();
 	          console.log(id);
-	          //var nick=$('#nick').val();
 	          if(id)
 	          	cliR.confirmar(id, "delete");
-	          	//cw.dialogoConfirmacion("¿Esta seguro?","Asegurese de que desea eliminar el paciente", id);
-	          
 	    });
 	}
 
@@ -394,9 +357,9 @@ function ControlWeb($){
 
 	this.mostrarMenuActualizar=function(data){
 		funcion_primera();
-		//cw.comprobarBackdrop();
 		console.log(data);
 		this.limpiar();
+
 		var cadena = '<div id="actualizarPaciente" class="registroActu">';
 		cadena+='<div id="atras" class="atras">';
 			cadena+='<div class="btnAtras" style="margin-right: 30%;">';
@@ -439,7 +402,6 @@ function ControlWeb($){
 	      		var tlf = $('#nTlf').val();
 	          	cliR.confirmarActu(id, nombre,apellido,tlf, "update");
 	          }
-	          	//cw.dialogoConfirmacion("¿Esta seguro?","Asegurese de que desea eliminar el paciente", id);  
 	    });
 	    $('#btnCancel').click(function(){
 	    	cliR.obtenerListaPacientes();
@@ -477,7 +439,6 @@ function ControlWeb($){
 		$('#modalActualizacion').modal("show");
 
 		$('#check').click(function(){
-			//cliR.close();
 			if(tipo=="update"){
 				console.log("DialogoACTU+++++++/id-->"+id+"/nombre-->"+nombre+"/apellido-->"+apellido+"/tlf-->"+tlf);
 	          cliR.actualizarPaciente(id,nombre,apellido,tlf);
@@ -586,7 +547,6 @@ function ControlWeb($){
 	        cadena=cadena+'<a href="#" value="'+_id+'" class="list-group-item a-jugadores"><table class="tableListaP"><tr><td><span class="badge"><h4>'+apellido+'</h4></span></td><td><span class="badge"><h4>'+nombre+'</h4></span></td><td><span class="badge"><h4>'+tlf+'<h4></span></td><td>'+this.botonesPaciente()+'</td></tr></table></a>';
 	    } 
 	    cadena=cadena+'</div>';
-	    //cadena=cadena+'</div>';
 	    cadena=cadena+'<input type="button" class="btn btn-primary center" id="entrar" value="Seleccionar" style="margin-bottom:5%; display:none;"></button>';
 	    cadena = cadena + '</div></div>';
 	    return cadena;
@@ -664,8 +624,6 @@ function ControlWeb($){
 	        cw.limpiar();
 	        cw.primerMenu();
 	        document.getElementById("myMain").appendChild(cw.seleccion);
-	        //document.getElementById('entrar').click();
-	        //if('#btnFotoPaciente').isClicked()
 	    });
 
 	    $('#atrasBtn').click(function(){
@@ -732,7 +690,6 @@ function ControlWeb($){
 	this.comprobarBackdrop=function(){
 		$('#modalGeneral').remove(); 
 		if ($('.modal-backdrop').is(':visible')) {
-		  //$('body').removeClass('modal-open'); 
 		  $('.modal-backdrop').remove(); 
 		};
 	}
@@ -770,7 +727,6 @@ function ControlWeb($){
 			cadena += '</div>';
     		cadena += '<p style="text-align: center;">';
     			cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:20%">Registrarse</button>';
-    			//cadena += '<button type="button" id="btnRegistro" class="btn btn-primary btn-md" style="margin-right:5%">Registrarse</button>';
 	  	cadena = cadena +'<button type="button" id="cancel" class="btn btn-primary btn-md" style="background-color:grey;">Cancelar</button>';
 			cadena += '</p>';
 		cadena += '</div>';
@@ -892,12 +848,10 @@ function ControlWeb($){
 	}
 
 	this.limpiar=function(){
-		//cliR.guardarMenu(document.getElementById('contenedorMenuPrincipal'));
 		if ($('.modal-backdrop').is(':visible'))
 			$('.modal-backdrop').remove(); 
 
 		$('#defaultCanvas0').remove();
-		//$('#modalGeneral').remove();
 		$('#contenedorMenuPrincipal2').remove();
 	  	$('#btnFoto').remove();
 	  	$('#menuP').remove();

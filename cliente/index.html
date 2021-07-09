@@ -21,11 +21,6 @@
     <link rel="stylesheet" type="text/css" href="cliente/css/style.css">
     <link rel="stylesheet" type="text/css" href="cliente/css/fontello.css">
   </head>
-  <!--script type="text/javascript">
-    var canv = document.getElementsByTagName('canvas')[0];
-    console.log(canv);
-    canv.hidden=true;
-  </script-->
 
   <body>
     <a id="inicio" href="#contenedorMenuPrincipal"></a>
@@ -47,74 +42,10 @@
     </header>
 
     <main id="myMain" class="main">
-      <!--div id="registro" class="registro">
-        <h2 id="cabeceraP">Registrarse</h2>
-        <div id="ig1" class="input-group" style="margin-bottom:25px">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-user"></i>
-          </span>
-          <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Escribe tu nombre" required>
-        </div>
-        <div id="ig2" class="input-group" style="margin-bottom:25px">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-user"></i>
-          </span>
-          <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Escribe tu apellido" required>
-        </div>
-        <div id="ig3" class="input-group" style="margin-bottom:25px">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-user"></i>
-          </span>
-          <input id="email" type="text" class="form-control" name="email" placeholder="Escribe tu email" required>
-        </div>
-        <div id="ig4" class="input-group" style="margin-bottom:25px">
-          <span class="input-group-addon" >
-            <i class="glyphicon glyphicon-lock"></i>
-          </span>
-          <input id="clave1" type="password" class="form-control" name="password" placeholder="Escribe tu clave" required>
-        </div>
-        <div id="ig5" class="input-group" style="margin-bottom:25px">
-          <span class="input-group-addon" >
-            <i class="glyphicon glyphicon-lock"></i>
-          </span>
-          <input id="clave2" type="password" class="form-control" name="password" placeholder="Repite la clave">
-        </div>
-        <p id="nombreBtn" style="text-align: center;">
-          <button type="button" id="nombreBtn" class="btn btn-primary btn-md">Registrarse</button>
-        </p>
-      </div-->
       <div class="contenedor" id="contenedorMenuPrincipal">
-        <!--section class="info" id="main">
-          <article class="infoColumna">
-              <div class="image-take">
-                <label for="btnRegistro">
-                    <img src="cliente/img/registro.png" alt ="Click aquí para registrarte" title ="Click aquí para registrarte"> 
-                </label>
-                <input id="btnRegistro" name="registro" type="button" style="display: none;" onclick="cw.mostrarRegistroMedico()">
-                <h2 class="infoTitulo">Registrarse</h2>
-              </div>
-          </article>
-          <article class="infoColumna">
-              <div class="image-take">
-                <label for="btnInicio">
-                    <img src="cliente/img/login.png" alt ="Click aquí para iniciar sesión" title ="Click aquí para iniciar sesión">
-                </label>
-                <input id="btnInicio" name="inicio" type="button" style="display: none;" onclick="cw.mostrarLogin()">
-                <h2 class="infoTitulo">Iniciar Sesión</h2>
-              </div>
-          </article>
-        </section-->
       </div>
       <script type="text/javascript">var x = document.getElementById("salir");
             x.style.display=="none";</script>
-      <!--div id="mainPrincipal">
-            <script>
-          function load() {
-            document.getElementById('inicio').click();
-          }
-          window.onload = load;
-        </script>
-      </div-->
       <div id="menuFoto"></div>
       <div id="cabecera"></div>
       <div id="menuPacientes"></div>
@@ -130,61 +61,6 @@
       <div id="btnDownload"></div>
       <div id="mySpinner"></div>
 
-      <!--div id="menuP" class="nuevoP">
-        <h2 id="altaP">Nuevo paciente</h2>
-        <div class="image-nuevo">
-          <label for="btnNuevo">
-              <img src="cliente/img/nuevo.png" alt ="Click aquí para crear un nuevo paciente" title ="Click aquí para crear un nuevo paciente"> 
-          </label>
-          <input id="btnNuevo" name="nuevo" type="button" style="display: none;" onclick="onNuevo();"/>
-        </div>
-      </div>
-
-      <h2 id="listaP" style="justify-content: flex-start;">Lista de pacientes</h2>
-      <p>Diferentes Elementos</p-->
-
-
-      <!--div class="contenedor" id="contenedorPrincipal">
-        <div class="resultado" id="canvasPosition" style="visibility: hidden;"></div>
-        <div id="ang"></div>
-        <div id="btnDownload"></div>
-        <section class="info" id="main">
-          <article style="visibility: hidden;">
-            <script type="text/javascript" src="cliente/src/sketch.js"></script>
-          </article>
-          <article class="infoColumna">
-            <form id="subir">
-              <div class="image-take">
-                <label for="file-input">
-                    <img src="cliente/img/camara.png" alt ="Click aquí para hacer tu foto" title ="Click aquí para tomar tu foto"> 
-                </label>
-                <input id="file-input" name="foto" type="file"/ accept="image/*" capture="camera">
-                <h2 class="infoTitulo">Click en la imagen para tomar foto</h2>
-              </div>
-            </form>
-          </article>
-          <article class="infoColumna">
-            <form id="subir2">
-              <div class="image-take">
-                <label for="btnSelect">
-                    <img src="cliente/img/select.gif" alt ="Click aquí para seleccionar una foto" title ="Click aquí para seleccionar una foto">
-                </label>
-                <input id="btnSelect" name="select" type="file"/ accept="image/*">
-                <h2 class="infoTitulo">Click en la imagen para seleccionar una foto</h2>
-              </div>
-            </form>
-          </article>
-          <article class="infoColumna">
-            <div class="image-upload">
-              <label for="btnUpload">
-                  <img src="cliente/img/cargar1.gif" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto"> 
-              </label>
-              <input id="btnUpload" name="upload" type="button" style="display: none;" onclick="onUpload();"/>
-              <h2 class="infoTitulo">Click en la imagen para subir foto</h2>
-            </div>
-          </article>
-        </section>
-      </div-->
   </main>
   <footer class="footer">
     <p class="autor">&copy; Universidad de Castilla-La Mancha 2021</p>

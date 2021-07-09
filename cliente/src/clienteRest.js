@@ -47,16 +47,12 @@ function ClienteRest(){
             cw.mostrarModal("Advertencia!","No se ha podido registrar", "#F6FF81");
           }
           else{
-          	//modal 
           	cw.mostrarModal("Bienvenido!!", "Se ha registrado con éxito", "white");
           	$.cookie("usr",JSON.stringify(data));
-          	//Lo mando a login
           	var uid = clir.obtenerUid();
-          	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
-	        	//cw.logeado=true;cw.toLogOut=true;
+          	$.getJSON("/obtenerListaPacientes/"+uid,function(data){
 	        	cw.mostrarLogin();
-	    	});               
-             //mostrarAviso("Te hemos enviado un email para confirmar tu cuenta");
+	    	});
           }
           },
         contentType:'application/json',
@@ -80,14 +76,12 @@ function ClienteRest(){
             cw.mostrarRegistroPaciente();
           }
           else{
-          	//modal 
           	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "white");
           	$.cookie("usr",JSON.stringify(data));
           	var uid = clir.obtenerUid();
           	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
 	        	cw.mostrarMenuP(data);
 	    	});
-             //mostrarAviso("Te hemos enviado un email para confirmar tu cuenta");
           }
           },
         contentType:'application/json',
@@ -106,14 +100,11 @@ function ClienteRest(){
             cw.mostrarModal("Advertencia!","No se ha podido registrar", "#F6FF81");
           }
           else{
-          	//modal 
           	cw.mostrarModal("Registro realizado!!", "Se ha registrado con éxito", "white");
-          	//$.cookie("usr",JSON.stringify(data));
           	var uid = clir.obtenerUidPaciente();
           	$.getJSON("/obtenerListaAngulos/"+uid,function(data){           
 	        	cw.menuAngulo(data);
 	    	});
-             //mostrarAviso("Te hemos enviado un email para confirmar tu cuenta");
           }
           },
         contentType:'application/json',
@@ -137,7 +128,6 @@ function ClienteRest(){
   	}
 
   	this.obtenerUidPaciente = function (){
-		//this.eliminarCookies();
   		if ($.cookie("usr")!=undefined){
     		var usr=JSON.parse($.cookie("usr"));
     		return usr._id;
@@ -162,7 +152,6 @@ function ClienteRest(){
 	    	uid=usr._id;
 	  	}
 	  	if (uid!=undefined){
-	  		//$.cookie("usr",JSON.stringify(data));
 	  		var uid = clir.obtenerUid();
 	    	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           
 	        	cw.mostrarMenuP(data);
@@ -180,13 +169,11 @@ function ClienteRest(){
 	    data:JSON.stringify({_id:id}),
 	    success:function(data){
 	      if (data.email==""){
-	        //mostrarLogin();
 	        console.log("Paciente no existe")
 	      }
 	      else{
 	        console.log('estamos en el paciente');
 	        $.cookie("usr",JSON.stringify(data));
-	        //cw.mostrarMenuP();
 	        var uid = clir.obtenerUidPaciente();
 	        console.log("ID COOKIE-->"+uid);
 	        $.getJSON("/obtenerListaAngulos/"+uid,function(data){           
@@ -200,7 +187,6 @@ function ClienteRest(){
   	}
 
   	this.enviarFoto=function(){
-  		//cw.mostrarModal("Subiendo Foto","La foto se ha seleccionado con exito", "white");
   		onUpload();
   	}
 
@@ -226,7 +212,6 @@ function ClienteRest(){
   	}
 
   	this.eliminarPaciente=function(id){
-	  //var usr=JSON.parse($.cookie("usr"));
 	  	$('#modalGeneral').modal('hide');
   		$('#modalGeneral').remove();
 	  $.ajax({
@@ -251,7 +236,6 @@ function ClienteRest(){
 	}
 
 	this.eliminarAngulo=function(id){
-	  //var usr=JSON.parse($.cookie("usr"));
 	  	$('#modalGeneral').modal('hide');
   		$('#modalGeneral').remove();
   		console.log("ELIMINARANGULO--->"+id);
@@ -283,8 +267,6 @@ function ClienteRest(){
 	    	uid=usr._id;
 	  	}
 	  	if (uid!=undefined){
-	  		//$.cookie("usr",JSON.stringify(data));
-	  		//var uid = clir.obtenerUidPaciente();
 	    	$.getJSON("/obtenerListaAngulos/"+uid,function(data){           
 	        	cw.menuAngulo(data);
 	    	});
@@ -299,14 +281,12 @@ function ClienteRest(){
 	    data:JSON.stringify({email:nombre,password:clave}),
 	    success:function(data){
 	      if (data.email==""){
-	        //mostrarLogin();
 	        cw.mostrarModal("Advertencia!", "Usuario o contraseña incorrecta", "#F6FF81");
 	        console.log("Medico no existe")
 	      }
 	      else{
 	        console.log('el usuario ha iniciado la sesión');
 	        $.cookie("usr",JSON.stringify(data));
-	        //cw.mostrarMenuP();
 	        console.log(data);
 	        clir.guardarUid();
 	        var uid = clir.obtenerUid();
@@ -332,7 +312,6 @@ function ClienteRest(){
 	        		cw.mostrarMenuActualizar(data);
 	      		}
 	      		else{
-	      			//cw.comprobarBackdrop();
 	      			cw.mostrarModal("Paciente Actualizado!!", "Se ha actualizado el paciente", "white");
 	        		var uid = clir.obtenerUid();
 			    	$.getJSON("/obtenerListaPacientes/"+uid,function(data){           

@@ -11,12 +11,9 @@ function Gestion() {
 		var ges=this;
 		var claveCifrada=cf.encrypt(clave);
 		var key=(new Date().valueOf()).toString();
-		//this.dao.conectar();
 		this.cad.obtenerMedicoCriterio({email:email},function(usr){
 			if(!usr){
 				ges.cad.insertarMedico({nombre:nombre,apellido:apellido,email:email,clave:claveCifrada},function(usu){
-					//moduloEmail.enviarEmail(email,key,"Haz click aqui para confirmar la cuenta");
-					//ju.dao.cerrar();
 					callback({_id:usu._id});
 				});
 			}
@@ -59,13 +56,9 @@ function Gestion() {
 
     this.registrarPaciente=function(nombre, apellido, tlf,medico,callback){
 		var ges=this;
-		//var key=(new Date().valueOf()).toString();
-		//this.dao.conectar();
 		this.cad.obtenerPacienteCriterio({tlf:tlf},function(usr){
 			if(!usr){
 				ges.cad.insertarPaciente({"nombre":nombre,"apellido":apellido,"tlf":tlf,"medico":medico},function(usu){
-					//moduloEmail.enviarEmail(email,key,"Haz click aqui para confirmar la cuenta");
-					//ju.dao.cerrar();
 					callback({_id:medico});
 				});
 			}
@@ -77,15 +70,11 @@ function Gestion() {
 
 	this.registrarAngulo=function(ang,paciente,callback){
 		var ges=this;
-		//var key=(new Date().valueOf()).toString();
-		//this.dao.conectar();
 		var hoy = Date.now();
 		var fecha = new Date(hoy);
 
 		
 				ges.cad.insertarAngulo({"ang":ang,"fecha":fecha.toLocaleDateString(),"paciente":paciente},function(usu){
-					//moduloEmail.enviarEmail(email,key,"Haz click aqui para confirmar la cuenta");
-					//ju.dao.cerrar();
 					callback({_id:paciente});
 				});
 	}
@@ -109,7 +98,6 @@ function Gestion() {
 				}
 			}
 			callback({retorno})
-			//callback(retorno);
 		});	
 	}
 
@@ -125,13 +113,10 @@ function Gestion() {
 				}
 			}
 			callback({retorno})
-			//callback(retorno);
 		});	
 	}
 
 	this.actualizarPaciente=function(nuevo,callback){
-		//this.comprobarCambios(nuevo);
-		//var usu=this;
 		var ges=this;
 		var _id = nuevo._id;
 		var nombre=nuevo.nombre;
@@ -141,7 +126,6 @@ function Gestion() {
 		ges.cad.obtenerPacienteCriterio(ges.cad.objectID(_id),function(usr){
 			console.log("actualizarPacienteModeloUSR-->"+usr);
 			if(usr){
-				//usr._id=_id;
 				usr.nombre=nombre;
 				usr.apellido=apellido;
 				usr.tlf=tlf;
